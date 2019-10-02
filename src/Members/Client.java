@@ -1,10 +1,10 @@
 package Members;
 
-public class User extends Users{
+public class Client extends Users{
 
     private Boolean adminStatus;
 
-    public User(String name,String lastName, String userName, String password, String phoneNumber){
+    public Client(String name, String lastName, String userName, String password, String phoneNumber){
         super(name, lastName, userName, password, phoneNumber);
         adminStatus = false;
     }
