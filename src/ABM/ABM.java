@@ -5,10 +5,14 @@ import Members.User;
 
 public class ABM {
 
-    Administrator upgradeToAdministrator(User user){
+    static Administrator upgradeToAdministrator(User user){
         Administrator newAdministrator = new Administrator(user.getName(),
                 user.getLastName(), user.getUserName(), user.getPassword(),
                 user.getPhoneNumber());
         return newAdministrator;
+    }
+
+    static void deleteUser(User user){
+
     }
 }
