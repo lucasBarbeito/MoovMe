@@ -12,7 +12,6 @@ public class Client extends Users{
     public void setAdminStatus(Boolean adminStatus) { this.adminStatus = adminStatus; }
     public Boolean getAdminStatus() { return adminStatus; }
 
-    //  puto el que lee
 
 
 }
