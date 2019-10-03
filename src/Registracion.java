@@ -6,4 +6,6 @@ public class Registracion {
         return new User(name,lastName, userName, password,phoneNumber);
     }
 
+
+
 }
