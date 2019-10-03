@@ -2,13 +2,13 @@ package Members;
 
 public abstract class Users {
 
-    private String name;
-    private String lastName;
-    private String userName;
-    private String password;
-    private String phoneNumber;
+    protected String name;
+    protected String lastName;
+    protected String userName;
+    protected String password;
+    protected String phoneNumber;
+    protected Boolean adminStatus;
 
-    public Users(){}
 
     public Users(String name,String lastName, String userName, String password, String phoneNumber){
         this.name = name;
