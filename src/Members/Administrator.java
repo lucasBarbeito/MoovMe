@@ -1,10 +1,11 @@
 package Members;
 
-import Zone.Zone;
+
+import ABM.ABM;
 
 public class Administrator extends User {
 
-    protected Zone zone;
+    ABM abm;
 
     public Administrator(String firstName,String lastName, String userName, String password, String phoneNumber){
         super(firstName, lastName, userName, password, phoneNumber);
@@ -14,9 +15,6 @@ public class Administrator extends User {
     // public void setAdminStatus(Boolean adminStatus) { this.adminStatus = adminStatus; }
     public Boolean getAdminStatus() { return adminStatus; }
 
-    public void deleteUserWhenBecomeAdministrator(){
-
-    }
 
 
 }
