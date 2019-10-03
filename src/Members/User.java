@@ -16,7 +16,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.adminStatus = false;
     }
 
     public String getName() { return firstName;}
@@ -32,7 +31,5 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-
 
 }
