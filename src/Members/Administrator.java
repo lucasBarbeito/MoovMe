@@ -1,6 +1,6 @@
 package Members;
 
-public class Administrator extends Users {
+public class Administrator extends User {
 
 
     public Administrator(String name,String lastName, String userName, String password, String phoneNumber){
@@ -8,7 +8,7 @@ public class Administrator extends Users {
         adminStatus = true;
     }
 
-    public void setAdminStatus(Boolean adminStatus) { this.adminStatus = adminStatus; }
+    // public void setAdminStatus(Boolean adminStatus) { this.adminStatus = adminStatus; }
     public Boolean getAdminStatus() { return adminStatus; }
 
 //hhhhhhhhhhhhhhh

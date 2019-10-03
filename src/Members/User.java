@@ -1,6 +1,6 @@
 package Members;
 
-public abstract class Users {
+public class User {
 
     protected String name;
     protected String lastName;
@@ -10,7 +10,7 @@ public abstract class Users {
     protected Boolean adminStatus;
 
 
-    public Users(String name,String lastName, String userName, String password, String phoneNumber){
+    public User(String name, String lastName, String userName, String password, String phoneNumber){
         this.name = name;
         this.lastName = lastName;
         this.userName = userName;
@@ -18,9 +18,7 @@ public abstract class Users {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;}
     public String getLastName() {
         return lastName;
     }
