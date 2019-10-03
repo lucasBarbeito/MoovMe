@@ -17,7 +17,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.adminStatus = false;
+        adminStatus = false;
         isBlocked = false;
     }
 
