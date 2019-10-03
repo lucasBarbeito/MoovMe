@@ -14,9 +14,5 @@ public class Administrator extends User {
     // public void setAdminStatus(Boolean adminStatus) { this.adminStatus = adminStatus; }
     public Boolean getAdminStatus() { return adminStatus; }
 
-    public void deleteUserWhenBecomeAdministrator(){
-
-    }
-
 
 }
