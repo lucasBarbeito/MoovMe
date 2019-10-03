@@ -12,7 +12,20 @@ public class ABM {
         return newAdministrator;
     }
 
+    static User downgradeToUser(Administrator administrator){
+        User newUser = new User(administrator.getName(),
+                administrator.getLastName(), administrator.getUserName(), administrator.getPassword(),
+                administrator.getPhoneNumber());
+        return newUser;
+    }
+
     static void deleteUser(User user){
+        //Goes to data base and deletes user.
+    }
+
+    static void blockUser(User user){
 
     }
+
+
 }
