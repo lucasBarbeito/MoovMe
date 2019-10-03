@@ -18,9 +18,6 @@ public class Client extends Users{
 
     public void rentVehicle(Vehicle vehicle){
 
-
     }
-
-
 
 }
