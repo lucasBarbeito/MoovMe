@@ -3,8 +3,8 @@ package Members;
 public class Administrator extends User {
 
 
-    public Administrator(String name,String lastName, String userName, String password, String phoneNumber){
-        super(name, lastName, userName, password, phoneNumber);
+    public Administrator(String firstName,String lastName, String userName, String password, String phoneNumber){
+        super(firstName, lastName, userName, password, phoneNumber);
         adminStatus = true;
     }
 

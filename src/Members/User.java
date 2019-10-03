@@ -2,7 +2,7 @@ package Members;
 
 public class User {
 
-    protected String name;
+    protected String firstName;
     protected String lastName;
     protected String userName;
     protected String password;
@@ -10,15 +10,15 @@ public class User {
     protected Boolean adminStatus;
 
 
-    public User(String name, String lastName, String userName, String password, String phoneNumber){
-        this.name = name;
+    public User(String firstName, String lastName, String userName, String password, String phoneNumber){
+        this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
-    public String getName() { return name;}
+    public String getName() { return firstName;}
     public String getLastName() {
         return lastName;
     }
