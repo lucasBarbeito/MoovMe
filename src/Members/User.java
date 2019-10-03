@@ -7,7 +7,8 @@ public class User {
     protected String userName;
     protected String password;
     protected String phoneNumber;
-    protected Boolean adminStatus;
+    protected boolean adminStatus;
+    private boolean isBlocked;
 
 
     public User(String firstName, String lastName, String userName, String password, String phoneNumber){
@@ -17,6 +18,7 @@ public class User {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.adminStatus = false;
+        isBlocked = false;
     }
 
     public String getName() { return firstName;}
