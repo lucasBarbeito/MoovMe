@@ -1,7 +1,5 @@
 package Members;
 
-
-
 public class Administrator extends User {
 
 
