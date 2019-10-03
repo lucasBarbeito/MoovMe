@@ -17,7 +17,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        adminStatus = false; //putoelquelee
+        adminStatus = false;
         isBlocked = false;
     }
 
