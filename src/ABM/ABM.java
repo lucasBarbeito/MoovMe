@@ -9,6 +9,7 @@ public class ABM {
         Administrator newAdministrator = new Administrator(user.getName(),
                 user.getLastName(), user.getUserName(), user.getPassword(),
                 user.getPhoneNumber());
+        // Hay que eliminar el user, para que una persona no tenga dos cuentas a la vez
         return newAdministrator;
     }
 
@@ -16,6 +17,7 @@ public class ABM {
         User newUser = new User(administrator.getName(),
                 administrator.getLastName(), administrator.getUserName(), administrator.getPassword(),
                 administrator.getPhoneNumber());
+        // Hay que eliminar el administrador, para que una persona no tenga dos cuentas a la vez
         return newUser;
     }
 

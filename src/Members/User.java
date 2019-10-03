@@ -10,7 +10,6 @@ public class User {
     protected boolean adminStatus;
     private boolean isBlocked;
 
-
     public User(String firstName, String lastName, String userName, String password, String phoneNumber){
         this.firstName = firstName;
         this.lastName = lastName;
