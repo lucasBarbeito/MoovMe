@@ -12,8 +12,6 @@ public abstract class Vehicle {
     public Vehicle(Zone zone, int id) {
         this.zone = zone;
         this.id = id;
-
-
     }
 
     public int getFare() {
