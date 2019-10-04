@@ -34,6 +34,7 @@ public class User {
         return phoneNumber;
     }
 
-
-
+    public String getFirstName() {
+        return firstName;
+    }
 }
