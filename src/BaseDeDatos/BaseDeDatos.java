@@ -1,7 +1,6 @@
 package BaseDeDatos;
 
 import Members.User;
-
 import java.util.ArrayList;
 
 public class BaseDeDatos {
