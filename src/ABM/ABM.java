@@ -7,7 +7,7 @@ import Members.User;
 public class ABM {
 
     static void upgradeToAdministrator(User user){
-        Administrator newAdministrator = new Administrator(user.getName(),
+        Administrator newAdministrator = new Administrator(user.getFirstName(),
                 user.getLastName(), user.getUserName(), user.getPassword(),
                 user.getPhoneNumber());
         BaseDeDatos.addUser(newAdministrator);
@@ -15,7 +15,7 @@ public class ABM {
     }
 
     static void downgradeToUser(Administrator administrator){
-        User newUser = new User(administrator.getName(),
+        User newUser = new User(administrator.getFirstName(),
                 administrator.getLastName(), administrator.getUserName(), administrator.getPassword(),
                 administrator.getPhoneNumber());
         BaseDeDatos.addUser(newUser);
