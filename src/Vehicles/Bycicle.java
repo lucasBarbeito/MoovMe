@@ -6,8 +6,8 @@ public class Bycicle extends Vehicle {
 
     private int bycicleFare, bycicleScore = 15;
 
-    public Bycicle(Zone zone, int vehicleId) {
-        super(zone, vehicleId);
-        this.vehicleFare = bycicleFare + zone.getZoneId();
+    public Bycicle(Zone vehicleZone, int vehicleId) {
+        super(vehicleZone, vehicleId);
+        this.vehicleFare = bycicleFare + vehicleZone.getZoneId();
     }
 }

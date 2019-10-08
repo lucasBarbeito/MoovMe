@@ -4,11 +4,11 @@ import Zone.Zone;
 
 public abstract class Vehicle {
 
-    protected Zone zone;
+    protected Zone vehicleZone;
     protected int vehicleId, vehicleFare, vehicleScore;
 
-    public Vehicle(Zone zone, int vehicleId) {
-        this.zone = zone;
+    public Vehicle(Zone vehicleZone, int vehicleId) {
+        this.vehicleZone = vehicleZone;
         this.vehicleId = vehicleId;
     }
 
@@ -20,7 +20,7 @@ public abstract class Vehicle {
         return vehicleId;
     }
 
-    public Zone getZone() {
-        return zone;
+    public Zone getVehicleZone() {
+        return vehicleZone;
     }
 }
