@@ -4,10 +4,10 @@ import Zone.Zone;
 
 public class ElectricScooter extends Vehicle {
 
-    private int electricScooterFare = 20;
+    private int electricScooterFare, electricScooterScore = 20;
 
     public ElectricScooter(Zone zone, int vehicleId) {
         super(zone, vehicleId);
-        this.fare = electricScooterFare + zone.getZoneId();
+        this.vehicleFare = electricScooterFare + electricScooterScore + zone.getZoneId();
     }
 }
