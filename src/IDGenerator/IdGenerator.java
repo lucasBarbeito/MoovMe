@@ -1,6 +1,6 @@
 package IDGenerator;
 
-abstract class IdGenerator {
+class IdGenerator {
 
     static int lastUserId, lastVehicleId, lastLotId, lastZoneId;
 
