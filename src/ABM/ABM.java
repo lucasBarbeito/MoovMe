@@ -15,6 +15,6 @@ public abstract class ABM<T> {
     }
 
     public void remove(T t) {
-        // elimina un usuario o activo
+        // elimina un usuario o activo lucas puto
     }
 }
