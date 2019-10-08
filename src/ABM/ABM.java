@@ -6,7 +6,7 @@ public abstract class ABM<T> {
 
     private ArrayList<T> list;
 
-    public void ABM(int initialCapacity) {
+    public ABM(int initialCapacity) {
         list = new ArrayList<T>(initialCapacity);
     }
 
