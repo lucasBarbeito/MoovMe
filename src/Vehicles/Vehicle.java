@@ -5,21 +5,21 @@ import Zone.Zone;
 public abstract class Vehicle {
 
     protected Zone zone;
-    protected int id;
-    protected int fare;
+    protected int vehicleId;
+    protected int vehicleFare;
+    protected int vehicleScore;
 
-
-    public Vehicle(Zone zone, int id) {
+    public Vehicle(Zone zone, int vehicleId) {
         this.zone = zone;
-        this.id = id;
+        this.vehicleId = vehicleId;
     }
 
-    public int getFare() {
-        return fare;
+    public int getVehicleFare() {
+        return vehicleFare;
     }
 
-    public int getId() {
-        return id;
+    public int getVehicleId() {
+        return vehicleId;
     }
 
     public Zone getZone() {

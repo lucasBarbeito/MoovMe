@@ -4,11 +4,10 @@ import Zone.Zone;
 
 public class Bycicle extends Vehicle {
 
-    private int bycicleFare = 15;
+    private int bycicleFare, bycicleScore = 15;
 
-
-    public Bycicle(Zone zone, int id) {
-        super(zone, id);
-        this.fare = bycicleFare + zone.getZoneValue();
+    public Bycicle(Zone zone, int vehicleId) {
+        super(zone, vehicleId);
+        this.vehicleFare = bycicleFare + zone.getZoneId();
     }
 }
