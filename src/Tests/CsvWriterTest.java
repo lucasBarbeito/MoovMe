@@ -20,9 +20,7 @@ public class CsvWriterTest {
         usuarios.add(user2);
         usuarios.add(user3);
 
-
         csvWriter.writeCsvFile("usuariosNdhea", usuarios);
-
 
     }
 }
