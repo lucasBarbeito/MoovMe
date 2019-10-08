@@ -7,9 +7,9 @@ public class MoovMe {
         UserABM userABM = new UserABM(10, 0);
         Registration registrationSystem = new Registration();
 
-        registrationSystem.registerUser("Jorge", "Lopez", "1169696969", userABM);
-        registrationSystem.registerUser("Maia", "Camarero", "1101010101", userABM);
-        registrationSystem.registerUser("Dimi", "AAA", "1133691847", userABM);
+        registrationSystem.registerUser("Jorge", "Lopez", "1169696969", userABM, "maila+kapa");
+        registrationSystem.registerUser("Maia", "Camarero", "1101010101", userABM, "helicopterodeatake");
+        registrationSystem.registerUser("Dimi", "AAA", "1133691847", userABM, "kkconpan");
 
         System.out.println("Antes de botar a Mai");
         userABM.printAllUsers();

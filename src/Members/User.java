@@ -34,7 +34,7 @@ public class User {
     }
 
     public String toString(){
-        return userId+", "+firstName+", "+lastName+", "+phoneNumber;
+        return userId + ", " + firstName + ", " + lastName + ", " + phoneNumber + ", " + userName;
     }
 
 }
