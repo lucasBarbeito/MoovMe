@@ -2,8 +2,8 @@ package Members;
 
 public class Administrator extends User {
 
-    public Administrator(String firstName, String lastName, String phoneNumber){
-        super(firstName, lastName, phoneNumber);
+    public Administrator(String firstName, String lastName, String phoneNumber, int userId){
+        super(firstName, lastName, phoneNumber, userId);
     }
 
 }

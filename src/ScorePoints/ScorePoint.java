@@ -14,6 +14,10 @@ public class ScorePoint {
         return zoneId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
     public int getTotalPoints() {
         return totalPoints;
     }
