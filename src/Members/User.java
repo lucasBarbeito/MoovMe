@@ -8,7 +8,6 @@ import java.util.HashMap;
 public class User {
 
     protected String firstName, lastName, userName, password, phoneNumber;
-    protected boolean adminStatus;
     private boolean isBlocked;
     HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
 
@@ -18,7 +17,6 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        adminStatus = false;
         isBlocked = false;
     }
 
