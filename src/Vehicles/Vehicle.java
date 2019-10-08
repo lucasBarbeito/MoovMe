@@ -5,9 +5,7 @@ import Zone.Zone;
 public abstract class Vehicle {
 
     protected Zone zone;
-    protected int vehicleId;
-    protected int vehicleFare;
-    protected int vehicleScore;
+    protected int vehicleId, vehicleFare, vehicleScore;
 
     public Vehicle(Zone zone, int vehicleId) {
         this.zone = zone;

@@ -7,11 +7,7 @@ import java.util.HashMap;
 
 public class User {
 
-    protected String firstName;
-    protected String lastName;
-    protected String userName;
-    protected String password;
-    protected String phoneNumber;
+    protected String firstName, lastName, userName, password, phoneNumber;
     protected boolean adminStatus;
     private boolean isBlocked;
     HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
