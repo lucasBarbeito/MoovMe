@@ -1,45 +1,33 @@
 package Members;
 
+import ScorePoints.ScorePoint;
+
+import java.awt.*;
+import java.util.HashMap;
+
 public class User {
 
-    protected String firstName;
-    protected String lastName;
-    protected String userName;
-    protected String password;
-    protected String phoneNumber;
-    protected boolean adminStatus;
+    protected String firstName, lastName, userName, phoneNumber;
     private boolean isBlocked;
+    HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
 
-    public User(String firstName, String lastName, String userName, String password, String phoneNumber){
+    public User(String firstName, String lastName, String userName, String phoneNumber){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        this.password = password;
         this.phoneNumber = phoneNumber;
-        adminStatus = false;
         isBlocked = false;
     }
 
-    public String getName() { return firstName;}
+    public String getFirstName() { return firstName;}
     public String getLastName() {
         return lastName;
     }
     public String getUserName() {
         return userName;
     }
-    public String getPassword() {
-        return password;
-    }
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public String getFirstName() {
-        return firstName;
-    }
-    public String[] getArray(){
-        String[] datos = {firstName, lastName, userName, password, String.valueOf(adminStatus), String.valueOf(isBlocked)};
-        return datos;
-    }
-
 
 }
