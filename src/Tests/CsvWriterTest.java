@@ -2,15 +2,13 @@ package Tests;
 
 import BaseDeDatos.CsvWriter;
 import Members.User;
-//import org.junit.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-//import static org.junit.Assert.*;
-
 public class CsvWriterTest {
 
-    //@Test
+    @Test
     public  void writeCsvFile() {
         CsvWriter csvWriter = new CsvWriter();
         User user1 = new User("lucas", "Barbeito", "4598", 1);
