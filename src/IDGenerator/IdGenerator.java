@@ -1,22 +1,22 @@
 package IDGenerator;
 
-class IdGenerator {
+public class IdGenerator {
 
-    static int lastUserId, lastVehicleId, lastLotId, lastZoneId;
+    public static int lastUserId, lastVehicleId, lastLotId, lastZoneId;
 
-    static int getNewUserId() {
+    public static int getNewUserId() {
         return ++lastUserId;
     }
 
-    static int getNewVehicleId() {
+    public static int getNewVehicleId() {
         return ++lastVehicleId;
     }
 
-    static int getNewLotId() {
+    public static int getNewLotId() {
         return ++lastLotId;
     }
 
-    static int getNewZoneId() {
+    public static int getNewZoneId() {
         return ++lastZoneId;
     }
 }

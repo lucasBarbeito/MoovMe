@@ -1,3 +1,4 @@
+import IDGenerator.IdGenerator;
 import Vehicles.Vehicle;
 
 public class Lot {
@@ -10,7 +11,6 @@ public class Lot {
     public Lot(Vehicle vehicle, int quantityOfVehicles){
         this.quantityOfVehicles = quantityOfVehicles;
         this.vehicle = vehicle;
-        int lotId = totalLots;
-        totalLots ++;
+        int lotId = IdGenerator.getNewLotId();
     }
 }
