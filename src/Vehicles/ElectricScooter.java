@@ -8,6 +8,6 @@ public class ElectricScooter extends Vehicle {
 
     public ElectricScooter(Zone zone, int vehicleId) {
         super(zone, vehicleId);
-        this.vehicleFare = electricScooterFare + electricScooterScore + zone.getZoneId();
+        this.vehicleFare = electricScooterFare + zone.getZoneId();
     }
 }

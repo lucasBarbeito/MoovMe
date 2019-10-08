@@ -1,5 +1,10 @@
 package Members;
 
+import ScorePoints.ScorePoint;
+
+import java.awt.*;
+import java.util.HashMap;
+
 public class User {
 
     protected String firstName;
@@ -9,6 +14,7 @@ public class User {
     protected String phoneNumber;
     protected boolean adminStatus;
     private boolean isBlocked;
+    HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
 
     public User(String firstName, String lastName, String userName, String password, String phoneNumber){
         this.firstName = firstName;
