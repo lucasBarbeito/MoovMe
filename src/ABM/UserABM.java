@@ -4,7 +4,7 @@ import Members.Administrator;
 import Members.User;
 import java.util.ArrayList;
 
-public class UserABM extends ABM {
+public class UserABM extends ABM<User> {
 
     ArrayList<User> blockedUsers;
 
@@ -33,6 +33,14 @@ public class UserABM extends ABM {
 
     public void unblockUser(User user) {
         blockedUsers.remove(user);
+    }
+
+    public void printAllUsers() {
+        for (User aUser: list) {
+            System.out.print(aUser.getFirstName() + " ");
+            System.out.print(aUser.getLastName() + " ");
+            System.out.println(aUser.getPhoneNumber());
+        }
     }
 
 }
