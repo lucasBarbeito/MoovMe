@@ -35,11 +35,20 @@ public class UserABM extends ABM<User> {
         blockedUsers.remove(user);
     }
 
+    public void removeUserById(int userId) {
+        for (User userToDelete: list) {
+            if(userToDelete.getUserId() == userId) {
+                remove(userToDelete);
+            }
+        }
+    }
+
     public void printAllUsers() {
         for (User aUser: list) {
             System.out.print(aUser.getFirstName() + " ");
             System.out.print(aUser.getLastName() + " ");
-            System.out.println(aUser.getPhoneNumber());
+            System.out.print(aUser.getPhoneNumber() + " ");
+            System.out.println(aUser.getUserId());
         }
     }
 
