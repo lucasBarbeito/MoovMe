@@ -1,34 +1,20 @@
 package ABM;
 
-import BaseDeDatos.BaseDeDatos;
-import Members.Administrator;
-import Members.User;
+import java.util.ArrayList;
 
-public class ABM {
+public abstract class ABM<T> {
 
-    static void upgradeToAdministrator(User user){
-        Administrator newAdministrator = new Administrator(user.getName(),
-                user.getLastName(), user.getUserName(), user.getPassword(),
-                user.getPhoneNumber());
-        BaseDeDatos.addUser(newAdministrator);
-        deleteUser(user);
+    private ArrayList<T> list;
+
+    public void ABM(int initialCapacity) {
+        list = new ArrayList<T>(initialCapacity);
     }
 
-    static void downgradeToUser(Administrator administrator){
-        User newUser = new User(administrator.getName(),
-                administrator.getLastName(), administrator.getUserName(), administrator.getPassword(),
-                administrator.getPhoneNumber());
-        BaseDeDatos.addUser(newUser);
-        deleteUser(administrator);
+    public void add(T t) {
+        // agrega un usuario o activo
     }
 
-    static void deleteUser(User user){
-        BaseDeDatos.removeUser(user);
+    public void remove(T t) {
+        // elimina un usuario o activo
     }
-
-    static void blockUser(User user){
-
-    }
-
-
 }
