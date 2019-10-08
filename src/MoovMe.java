@@ -11,11 +11,11 @@ public class MoovMe {
         registrationSystem.registerUser("Maia", "Camarero", "1101010101", userABM);
         registrationSystem.registerUser("Dimi", "AAA", "1133691847", userABM);
 
-        System.out.println("Antes de botar a Jorge");
+        System.out.println("Antes de botar a Mai");
         userABM.printAllUsers();
 
         System.out.println(" ");
-        System.out.println("Despues de botar a Jorge");
+        System.out.println("Despues de botar a Mai");
         userABM.removeUserById(2); // Si es 1 en vez de 2, hay que ver que pasa
         userABM.printAllUsers();
     }
