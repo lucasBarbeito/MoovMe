@@ -17,14 +17,14 @@ public class User {
         this.userId = userId;
     }
 
-    public String getFirstName() { return firstName;}
+    public String getFirstName() {
+        return firstName;}
     public String getLastName() {
         return lastName;
     }
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public int getUserId() {
         return userId;
     }
