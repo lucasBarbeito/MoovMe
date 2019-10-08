@@ -2,7 +2,7 @@ package IDGenerator;
 
 public class IdGenerator {
 
-    public static int lastUserId, lastVehicleId, lastLotId, lastZoneId;
+    public static int lastUserId, lastVehicleId, lastLotId, lastZoneId = 0;
 
     public static int getNewUserId() {
         return ++lastUserId;
