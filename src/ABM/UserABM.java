@@ -15,14 +15,14 @@ public class UserABM extends ABM {
 
     public void upgradeToAdministrator(User user){
         Administrator newAdministrator = new Administrator(user.getFirstName(),
-                user.getLastName(), user.getPhoneNumber());
+                user.getLastName(), user.getPhoneNumber(), user.getUserId());
         add(newAdministrator);
         remove(user);
     }
 
     public void downgradeToUser(Administrator administrator){
         User newUser = new User(administrator.getFirstName(),
-                administrator.getLastName(), administrator.getPhoneNumber());
+                administrator.getLastName(), administrator.getPhoneNumber(), administrator.getUserId());
         add(newUser);
         remove(administrator);
     }
