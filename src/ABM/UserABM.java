@@ -6,7 +6,7 @@ import Members.User;
 public class UserABM extends ABM {
 
     public void upgradeToAdministrator(User user){
-        Administrator newAdministrator = new Administrator(user.getName(),
+        Administrator newAdministrator = new Administrator(user.getFirstName(),
                 user.getLastName(), user.getUserName(), user.getPassword(),
                 user.getPhoneNumber());
         add(newAdministrator);
@@ -14,7 +14,7 @@ public class UserABM extends ABM {
     }
 
     public void downgradeToUser(Administrator administrator){
-        User newUser = new User(administrator.getName(),
+        User newUser = new User(administrator.getFirstName(),
                 administrator.getLastName(), administrator.getUserName(), administrator.getPassword(),
                 administrator.getPhoneNumber());
         add(newUser);
