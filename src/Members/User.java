@@ -29,4 +29,8 @@ public class User {
         return userId;
     }
 
+    public String toString(){
+        return userId+","+firstName+","+lastName+","+phoneNumber;
+    }
+
 }

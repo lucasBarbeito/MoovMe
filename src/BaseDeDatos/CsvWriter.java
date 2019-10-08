@@ -10,7 +10,9 @@ public class CsvWriter {
 
     private static final String fileHeader = "Name, Lastname, Username, Password, Phone number";
 
-    public static void writeCsvFile(String fileName, ArrayList<User> users){
+
+
+    public  void writeCsvFile(String fileName, ArrayList<User> users){
 
         FileWriter fileWriter = null;
 
