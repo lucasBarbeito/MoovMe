@@ -2,10 +2,11 @@ package ScorePoints;
 
 public class ScorePoint {
 
-    int zoneId, totalPoints;
+    int zoneId, userId, totalPoints;
 
-    public ScorePoint(int zoneId, int totalPoints) {
+    public ScorePoint(int zoneId, int userId, int totalPoints) {
         this.zoneId = zoneId;
+        this.userId = userId;
         this.totalPoints = totalPoints;
     }
 
