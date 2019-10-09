@@ -1,16 +1,23 @@
 package Vehicles;
 
-import Zone.Zone;
+import Zone.*;
 
 public abstract class Vehicle {
 
-    protected Zone zone;
-    protected int vehicleId, vehicleFare, vehicleScore;
+    protected Zone vehicleZone;
+    protected int vehicleId, vehicleFare, vehicleScore/*,vehicleBatchId*/;
+    protected Terminal itsTerminal;
 
-    public Vehicle(Zone zone, int vehicleId) {
-        this.zone = zone;
+    public Vehicle(Zone vehicleZone, int vehicleId) {
+        this.vehicleZone = vehicleZone;
         this.vehicleId = vehicleId;
     }
+   /* public Vehicle(Zone vehicleZone, int vehicleId, int vehicleBatchId) {
+        this.vehicleZone = vehicleZone;
+        this.vehicleId = vehicleId;
+        this.vehicleBatchId = vehicleBatchId;
+    }*/
+
 
     public int getVehicleFare() {
         return vehicleFare;
@@ -20,7 +27,14 @@ public abstract class Vehicle {
         return vehicleId;
     }
 
-    public Zone getZone() {
-        return zone;
+    public Zone getVehicleZone() {
+        return vehicleZone;
+    }
+
+    public void setItsTerminal(Terminal itsTerminal) {
+        this.itsTerminal = itsTerminal;
+    }
+    public Terminal getItsTerminal() {
+        return itsTerminal;
     }
 }
