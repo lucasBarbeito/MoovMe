@@ -30,7 +30,7 @@ public class User {
     }
 
     public String toString() {
-        return userId+", "+phoneNumber;
+        return userId + ", " + phoneNumber;
     }
 
 }
