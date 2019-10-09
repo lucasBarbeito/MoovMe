@@ -1,6 +1,7 @@
 package Members;
 
 import ScorePoints.ScorePoint;
+import Vehicles.Vehicle;
 
 import java.util.HashMap;
 
@@ -36,6 +37,11 @@ public class User {
 
     public String toString(){
         return userId + ", " + firstName + ", " + lastName + ", " + phoneNumber + ", " + userName;
+    }
+
+    public void takeAVehicle(Vehicle vehicle){
+
+
     }
 
 }
