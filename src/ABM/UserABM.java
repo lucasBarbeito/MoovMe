@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class UserABM extends ABM<User> {
 
-    ArrayList<User> blockedUsers;
+    private ArrayList<User> blockedUsers;
 
     public UserABM(int initialNumberOfUsers, int initialNumberOfBlockedUsers) {
         super(initialNumberOfUsers);
         blockedUsers = new ArrayList<User>(initialNumberOfBlockedUsers);
     }
 
-    public void upgradeToAdministrator(User user){
+    public void upgradeToAdministrator(User user) {
         Administrator newAdministrator = new Administrator(user.getFirstName(),
                 user.getLastName(), user.getPhoneNumber(), user.getUserId());
         add(newAdministrator);

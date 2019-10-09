@@ -18,13 +18,17 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;}
+        return firstName;
+    }
+
     public String getLastName() {
         return lastName;
     }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public int getUserId() {
         return userId;
     }
