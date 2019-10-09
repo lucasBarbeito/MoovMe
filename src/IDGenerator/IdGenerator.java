@@ -2,29 +2,30 @@ package IDGenerator;
 
 public class IdGenerator {
 
-    public static int lastUserId, lastVehicleId, lastBatchId, lastZoneId, lastBycicleBatchId,lastElectricSooterId = 0;
+    public int lastUserId, lastVehicleId, lastBatchId, lastZoneId, lastBycicleBatchId,lastElectricSooterId = 0;
 
-    public static int getNewUserId() {
+    public int getNewUserId() {
         return ++lastUserId;
     }
 
-    public static int getNewVehicleId() {
+    public int getNewVehicleId() {
         return ++lastVehicleId;
     }
 
-    public static int getNewBatchId() {
+    public int getNewBatchId() {
         return ++lastBatchId;
     }
 
-    public static int getNewZoneId() {
+    public int getNewZoneId() {
         return ++lastZoneId;
     }
 
-    public static int getNewBycicleBatchId() {
+    public int getNewBycicleBatchId() {
         return ++lastBycicleBatchId;
     }
 
-    public static int getNewElectricSooterId() {
+    public int getNewElectricSooterId() {
         return ++lastElectricSooterId;
     }
+
 }
