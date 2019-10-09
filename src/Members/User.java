@@ -6,23 +6,18 @@ import java.util.HashMap;
 
 public class User {
 
-    protected String firstName, lastName, phoneNumber;
+    protected String userName, phoneNumber;
     protected int userId;
     HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
 
-    public User(String firstName, String lastName, String phoneNumber, int userId){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String userName, String phoneNumber, int userId){
+        this.userName = userName;
         this.phoneNumber = phoneNumber;
         this.userId = userId;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
+    public String getUserName() {
+        return userName;
     }
 
     public String getPhoneNumber() {
@@ -33,8 +28,8 @@ public class User {
         return userId;
     }
 
-    public String toString(){
-        return userId+", "+firstName+", "+lastName+", "+phoneNumber;
+    public String toString() {
+        return userId+", "+phoneNumber;
     }
 
 }
