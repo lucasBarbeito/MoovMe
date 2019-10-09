@@ -1,19 +1,12 @@
 package Vehicles;
 
-import Zone.Zone;
+import Zone.*;
 
 public class ElectricScooter extends Vehicle {
 
-    private int electricScooterFare, electricScooterScore = 20;
-    private int electricScooterBatchId;
 
-    public ElectricScooter(Zone vehicleZone, int vehicleId) {
-        super(vehicleZone, vehicleId);
-        this.vehicleFare = electricScooterFare + vehicleZone.getZoneId();
-    }
-    public ElectricScooter(Zone vehicleZone, int vehicleId, int electricScooterBatchId) {
-        super(vehicleZone, vehicleId);
-        this.vehicleFare = electricScooterFare + vehicleZone.getZoneId();
-        this. electricScooterBatchId = electricScooterBatchId;
+    public ElectricScooter(Zone vehicleZone, int vehicleId, int vehicleFare,
+                           int vehicleScore, int vehicleBatchId, Terminal itsTerminal) {
+        super(vehicleZone, vehicleId, vehicleFare, vehicleScore, vehicleBatchId, itsTerminal);
     }
 }

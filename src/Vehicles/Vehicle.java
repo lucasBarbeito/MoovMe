@@ -5,19 +5,18 @@ import Zone.*;
 public abstract class Vehicle {
 
     protected Zone vehicleZone;
-    protected int vehicleId, vehicleFare, vehicleScore/*,vehicleBatchId*/;
+    protected int vehicleId, vehicleFare, vehicleScore, vehicleBatchId;
     protected Terminal itsTerminal;
 
-    public Vehicle(Zone vehicleZone, int vehicleId) {
+    public Vehicle(Zone vehicleZone, int vehicleId, int vehicleFare, int vehicleScore,
+                   int vehicleBatchId, Terminal itsTerminal) {
         this.vehicleZone = vehicleZone;
         this.vehicleId = vehicleId;
-    }
-   /* public Vehicle(Zone vehicleZone, int vehicleId, int vehicleBatchId) {
-        this.vehicleZone = vehicleZone;
-        this.vehicleId = vehicleId;
+        this.vehicleFare = vehicleFare;
+        this.vehicleScore = vehicleScore;
         this.vehicleBatchId = vehicleBatchId;
-    }*/
-
+        this.itsTerminal = itsTerminal;
+    }
 
     public int getVehicleFare() {
         return vehicleFare;
