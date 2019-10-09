@@ -24,18 +24,4 @@ public class Zone {
     public int getZoneId() {
         return zoneId;
     }
-
-    public static class Lot {
-
-        private Vehicle vehicle;
-        private int quantityOfVehicles, lotId, totalLots;
-
-
-        public Lot(Vehicle vehicle, int quantityOfVehicles){
-            this.quantityOfVehicles = quantityOfVehicles;
-            this.vehicle = vehicle;
-            lotId = IdGenerator.getNewLotId();
-
-        }
-    }
 }

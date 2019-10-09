@@ -1,5 +1,6 @@
 package Members;
 
+import IDGenerator.IdGenerator;
 import ScorePoints.ScorePoint;
 
 import java.util.HashMap;
