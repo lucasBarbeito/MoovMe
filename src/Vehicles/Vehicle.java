@@ -8,15 +8,17 @@ public abstract class Vehicle {
     protected int vehicleId, vehicleFare, vehicleScore, vehicleBatchId;
     protected Terminal itsTerminal;
 
-    public Vehicle(Zone vehicleZone, int vehicleId, int vehicleFare, int vehicleScore,
-                   int vehicleBatchId, Terminal itsTerminal) {
+    public Vehicle(Zone vehicleZone, int vehicleId) {
         this.vehicleZone = vehicleZone;
         this.vehicleId = vehicleId;
-        this.vehicleFare = vehicleFare;
-        this.vehicleScore = vehicleScore;
-        this.vehicleBatchId = vehicleBatchId;
-        this.itsTerminal = itsTerminal;
     }
+
+   /* public Vehicle(Zone vehicleZone, int vehicleId, int vehicleBatchId) {
+        this.vehicleZone = vehicleZone;
+        this.vehicleId = vehicleId;
+        this.vehicleBatchId = vehicleBatchId;
+    }*/
+
 
     public int getVehicleFare() {
         return vehicleFare;

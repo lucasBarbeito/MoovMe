@@ -14,15 +14,13 @@ public class UserABM extends ABM<User> {
     }
 
     public void upgradeToAdministrator(User user) {
-        Administrator newAdministrator = new Administrator(user.getFirstName(),
-                user.getLastName(), user.getPhoneNumber(), user.getUserId(), user.getUserName());
+        Administrator newAdministrator = new Administrator(user.getUserName(), user.getPhoneNumber(), user.getUserId());
         add(newAdministrator);
         remove(user);
     }
 
     public void downgradeToUser(Administrator administrator){
-        User newUser = new User(administrator.getFirstName(),
-                administrator.getLastName(), administrator.getPhoneNumber(), administrator.getUserId(), administrator.getUserName());
+        User newUser = new User(administrator.getUserName(), administrator.getPhoneNumber(), administrator.getUserId());
         add(newUser);
         remove(administrator);
     }
@@ -45,8 +43,7 @@ public class UserABM extends ABM<User> {
 
     public void printAllUsers() {
         for (User aUser: list) {
-            System.out.print(aUser.getFirstName() + " ");
-            System.out.print(aUser.getLastName() + " ");
+            System.out.print(aUser.getUserName() + " ");
             System.out.print(aUser.getPhoneNumber() + " ");
             System.out.println(aUser.getUserId());
         }
