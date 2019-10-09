@@ -22,8 +22,8 @@ public class VehicleABM extends ABM <Vehicle> {
             add(newBycicleBatch[i]);
         }
         return newBycicleBatch;
-
     }
+
     public ElectricScooter[] createElectricSooterBatch(int cuantity, Terminal terminal) {
         ElectricScooter[] newElectricScooterBatch = new ElectricScooter[cuantity];
         int numberOfBatch = IdGenerator.getNewElectricSooterId();
@@ -32,6 +32,16 @@ public class VehicleABM extends ABM <Vehicle> {
             add(newElectricScooterBatch[i]);
         }
         return newElectricScooterBatch;
-
     }
+
+    public Vehicle[] createBatch(int cuantity, Terminal terminal) {
+        Vehicle[] newVehicleBatch = new Vehicle[cuantity];
+        int numberOfBatch = IdGenerator.getNewBycicleBatchId();
+        for (int i = 0;i < newVehicleBatch.length;i++){
+            newVehicleBatch[i] = new Bycicle(terminal.getItsZone(), IdGenerator.getNewVehicleId(),numberOfBatch);
+            add(newVehicleBatch[i]);
+        }
+        return newVehicleBatch;
+    }
+
 }
