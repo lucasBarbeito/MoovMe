@@ -2,20 +2,21 @@ package ScorePoints;
 
 public class ScorePoint {
 
-    int zoneId, userId, totalPoints;
+    int totalPoints;
+    String zoneName, userName;
 
-    public ScorePoint(int zoneId, int userId, int totalPoints) {
-        this.zoneId = zoneId;
-        this.userId = userId;
+    public ScorePoint(int totalPoints, String zoneName, String userName) {
         this.totalPoints = totalPoints;
+        this.zoneName = zoneName;
+        this.userName = userName;
     }
 
-    public int getZoneId() {
-        return zoneId;
+    public String getZoneName() {
+        return zoneName;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 
     public int getTotalPoints() {
