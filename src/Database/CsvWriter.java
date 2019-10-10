@@ -1,4 +1,4 @@
-package BaseDeDatos;
+package Database;
 
 import Members.User;
 

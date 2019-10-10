@@ -7,30 +7,24 @@ import java.util.HashMap;
 
 public class User {
 
-    protected String userName, phoneNumber;
-    protected int userId;
+    protected String username, phoneNumber;
+    protected boolean blockedStatus;
     HashMap<Integer, ScorePoint> points = new HashMap<Integer, ScorePoint>();
 
-    public User(String userName, String phoneNumber, int userId){
-        this.userName = userName;
+    public User(String username, String phoneNumber){
+        this.username = username;
         this.phoneNumber = phoneNumber;
-        this.userId = userId;
+        blockedStatus = false;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public String toString() {
-        return userId + ", " + phoneNumber;
-    }
+    public boolean getBlockedStatus() { return blockedStatus; }
 
 }

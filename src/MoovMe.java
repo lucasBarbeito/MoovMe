@@ -1,23 +1,60 @@
-import ABM.UserABM;
-import Members.User;
+import ABM.AdminABM;
+import Database.AdminDatabase;
+import Database.UserDatabase;
+import Members.Administrator;
 
 public class MoovMe {
 
     public static void main(String[] args) {
-        UserABM userABM = new UserABM(10, 0);
-        Registration registrationSystem = new Registration();
+        UserDatabase userDatabase = new UserDatabase();
+        AdminDatabase adminDatabase = new AdminDatabase();
+        AdminABM adminABM = new AdminABM(userDatabase, adminDatabase);
+        Registration userRegister = new Registration(userDatabase);
+        Administrator dimi = new Administrator("Georges47", "1133691847", adminABM, userDatabase);
+        adminDatabase.add(dimi.getUsername(), dimi);
+        userRegister.registerUser("PapiJorge69", "1169696969");
+        userRegister.registerUser("MaiMai420", "1122223333");
 
-        registrationSystem.registerUser("Jorge", "Lopez", "1169696969", userABM, "maila+kapa");
-        registrationSystem.registerUser("Maia", "Camarero", "1101010101", userABM, "helicopterodeatake");
-        registrationSystem.registerUser("Dimi", "AAA", "1133691847", userABM, "kkconpan");
+        System.out.println("Printing admins data:");
+        adminDatabase.printData();
+        System.out.println(" ");
+        System.out.println("Printing users data:");
+        userDatabase.printData();
 
-        System.out.println("Antes de botar a Mai");
-        userABM.printAllUsers();
 
         System.out.println(" ");
-        System.out.println("Despues de botar a Mai");
-        userABM.removeUserById(2); // Si es 1 en vez de 2, hay que ver que pasa
-        userABM.printAllUsers();
+        dimi.blockUser("PapiJorge69");
+        System.out.println("After blocking PapiJorge69:\n");
+
+        System.out.println("Printing admins data:");
+        adminDatabase.printData();
+        System.out.println(" ");
+        System.out.println("Printing users data:");
+        userDatabase.printData();
+
+
+        System.out.println(" ");
+        dimi.unblockUser("PapiJorge69");
+        System.out.println("After unblocking PapiJorge69:\n");
+
+        System.out.println("Printing admins data:");
+        adminDatabase.printData();
+        System.out.println(" ");
+        System.out.println("Printing users data:");
+        userDatabase.printData();
+
+
+        System.out.println(" ");
+        dimi.upgradeToAdmin("PapiJorge69");
+        System.out.println("After upgrading PapiJorge69 to admin:\n");
+
+        System.out.println("Printing admins data:");
+        adminDatabase.printData();
+        System.out.println(" ");
+        System.out.println("Printing users data:");
+        userDatabase.printData();
+
+
     }
 
 }
