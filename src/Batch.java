@@ -11,4 +11,6 @@ public class Batch {
             this.vehicle = vehicle;
             batchId = IdGenerator.getNewBatchId();
         }
+
+        // you are ga
 }
