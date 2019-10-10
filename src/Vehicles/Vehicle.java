@@ -32,6 +32,7 @@ public abstract class Vehicle {
     public void setItsTerminal(Terminal itsTerminal) {
         this.itsTerminal = itsTerminal;
     }
+
     public Terminal getItsTerminal() {
         return itsTerminal;
     }

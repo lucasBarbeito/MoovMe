@@ -13,12 +13,13 @@ public class Terminal {
         this.itsZone = itsZone;
         this.terminalId = terminalId;
         vehicles = new ArrayList<Vehicle>();
-
     }
-    public void addVehcileToTerminal(Vehicle vehicle){
+
+    public void addVehiclesToTerminal(Vehicle vehicle){
         vehicles.add(vehicle);
     }
-    public void removeVehcileFromTerminal(Vehicle vehicle){
+
+    public void removeVehiclesFromTerminal(Vehicle vehicle){
         vehicles.remove(vehicle);
     }
 
@@ -29,6 +30,7 @@ public class Terminal {
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
+
     public Zone getItsZone() {
         return itsZone;
     }

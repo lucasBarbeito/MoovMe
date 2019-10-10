@@ -2,23 +2,23 @@ package Database;
 
 import java.util.HashMap;
 
-public abstract class Database<Type> {
+public abstract class Database<Key, Value> {
 
-    protected HashMap<String, Type> hashmap;
+    protected HashMap<Key, Value> hashmap;
     public Database() {
-        this.hashmap = new HashMap<String, Type>();
+        this.hashmap = new HashMap<Key, Value>();
     }
 
-    public Type find(String username) {
-        return hashmap.get(username);
+    public Value find(Key key) {
+        return hashmap.get(key);
     }
 
-    public void remove(String username) {
-        hashmap.remove(username);
+    public void remove(Key key) {
+        hashmap.remove(key);
     }
 
-    public void add(String username, Type aType) {
-        hashmap.put(username, aType);
+    public void add(Key key, Value aValue) {
+        hashmap.put(key, aValue);
     }
 
     public abstract void printData();

@@ -1,9 +1,7 @@
 package ABM;
 
-import Database.AdminDatabase;
-import Database.UserDatabase;
-import Members.Administrator;
-import Members.User;
+import Database.*;
+import Members.*;
 
 public class AdminABM {
 
@@ -28,7 +26,5 @@ public class AdminABM {
         Administrator anAdmin = new Administrator(aUser.getUsername(), aUser.getPhoneNumber(), this, userDatabase);
         adminDatabase.add(username, anAdmin);
     }
-
-
 
 }

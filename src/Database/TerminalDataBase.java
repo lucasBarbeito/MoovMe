@@ -2,7 +2,7 @@ package Database;
 
 import Zone.Terminal;
 
-public class TerminalDataBase extends Database<Terminal> {
+public class TerminalDataBase extends Database<Integer, Terminal> {
 
     public TerminalDataBase() { super(); }
 
@@ -12,4 +12,5 @@ public class TerminalDataBase extends Database<Terminal> {
             System.out.println(terminal.getItsZone() + " // " + terminal.getTerminalId());
         }
     }
+
 }

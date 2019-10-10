@@ -1,7 +1,7 @@
 package Database;
 import Members.Administrator;
 
-public class AdminDatabase extends Database<Administrator> {
+public class AdminDatabase extends Database<String, Administrator> {
 
     public AdminDatabase() {
         super();

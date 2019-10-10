@@ -27,4 +27,8 @@ public class User {
 
     public boolean getBlockedStatus() { return blockedStatus; }
 
+    public void startTrip() {
+
+    }
+
 }

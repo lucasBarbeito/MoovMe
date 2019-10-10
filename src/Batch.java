@@ -1,14 +1,14 @@
 import IDGenerator.IdGenerator;
 import Vehicles.Vehicle;
 
-public class Lot {
+public class Batch {
 
         private Vehicle vehicle;
-        private int quantityOfVehicles, lotId, totalLots;
+        private int quantityOfVehicles, batchId, totalBatchess;
 
-        public Lot(Vehicle vehicle, int quantityOfVehicles){
+        public Batch(Vehicle vehicle, int quantityOfVehicles){
             this.quantityOfVehicles = quantityOfVehicles;
             this.vehicle = vehicle;
-            lotId = IdGenerator.getNewLotId();
+            batchId = IdGenerator.getNewBatchId();
         }
 }

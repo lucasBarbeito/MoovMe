@@ -2,7 +2,7 @@ package Database;
 
 import Members.User;
 
-public class UserDatabase extends Database<User>{
+public class UserDatabase extends Database<String, User>{
 
     public UserDatabase() {
         super();
