@@ -5,13 +5,13 @@ import Vehicles.Vehicle;
 import java.util.ArrayList;
 
 public class Terminal {
-    private String street;
     private Zone itsZone;
     private ArrayList<Vehicle> vehicles;
+    private int terminalId;
 
-    public Terminal(String street, Zone itsZone){
-        this.street = street;
+    public Terminal(Zone itsZone, int terminalId){
         this.itsZone = itsZone;
+        this.terminalId = terminalId;
         vehicles = new ArrayList<Vehicle>();
 
     }
@@ -22,11 +22,12 @@ public class Terminal {
         vehicles.remove(vehicle);
     }
 
+    public int getTerminalId() {
+        return terminalId;
+    }
+
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
-    }
-    public String getStreet() {
-        return street;
     }
     public Zone getItsZone() {
         return itsZone;
