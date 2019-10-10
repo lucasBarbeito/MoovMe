@@ -2,6 +2,7 @@ package Members;
 
 import IDGenerator.IdGenerator;
 import ScorePoints.ScorePoint;
+import Zone.Terminal;
 
 import java.util.HashMap;
 
