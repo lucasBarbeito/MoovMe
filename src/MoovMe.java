@@ -14,6 +14,7 @@ public class MoovMe {
         adminDatabase.add(dimi.getUsername(), dimi);
         userRegister.registerUser("PapiJorge69", "1169696969");
         userRegister.registerUser("MaiMai420", "1122223333");
+        userRegister.registerUser("Ape" , "119889898989");
 
         System.out.println("Printing admins data:");
         adminDatabase.printData();
