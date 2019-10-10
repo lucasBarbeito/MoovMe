@@ -3,8 +3,6 @@ package ABM;
 import Database.TerminalDataBase;
 import Zone.Terminal;
 
-import java.util.HashMap;
-
 public class TerminalABM {
 
     private TerminalDataBase terminalDataBase;
