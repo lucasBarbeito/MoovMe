@@ -1,9 +1,10 @@
 package Members;
 
-import IDGenerator.IdGenerator;
 import ScorePoints.ScorePoint;
 import Trip.Trip;
-import Zone.Terminal;
+import Vehicles.Vehicle;
+import Date.Date;
+import Zone.Zone;
 
 import java.util.HashMap;
 
@@ -30,8 +31,14 @@ public class User {
 
     public boolean getBlockedStatus() { return blockedStatus; }
 
-    public void startTrip() {
+    public void startTrip(int vehicleId, Zone zone) {
+        Vehicle vehicle = zone.checkForVehicleInZone(vehicleId);
+        trip = new Trip(Date.getInstantTime(), this, vehicle, zone);
+    }
 
+    public void finishTrip(int terminalId){
+        trip.setEndTime();
+        trip.getZone().saveVehicleInTerminal(trip.getVehicle(), terminalId);
     }
 
     public Trip getTrip() {

@@ -12,6 +12,10 @@ public class Date {
         this.minute = minute;
     }
 
+    public static Date getInstantTime() {
+        throw new RuntimeException("Hacer Metodo get instatnt time");
+    }
+
     public int getDay() {
         return day;
     }

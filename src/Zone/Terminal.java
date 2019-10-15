@@ -34,4 +34,22 @@ public class Terminal {
     public Zone getItsZone() {
         return itsZone;
     }
+
+    public boolean checkForVehicleInTerminal(int vehicleId) {
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle.getVehicleId() == vehicleId){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Vehicle getVehicle(int vehicleId) {
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle.getVehicleId() == vehicleId){
+                return vehicle;
+            }
+        }
+        throw new RuntimeException();
+    }
 }
