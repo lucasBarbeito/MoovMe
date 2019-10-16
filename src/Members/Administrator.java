@@ -35,8 +35,8 @@ public class Administrator extends User {
         adminABM.removeFromABM(username);
     }
 
-    public void createTerminal(String zoneName) {
-        Terminal newTerminal = new Terminal(new Zone(zoneName), IdGenerator.getNewTerminalId());
+    public void createTerminal(String zoneName , double zoneDiscount) {
+        Terminal newTerminal = new Terminal(new Zone(zoneName , zoneDiscount), IdGenerator.getNewTerminalId());
         terminalABM.addToABM(newTerminal);
     }
 
