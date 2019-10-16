@@ -4,11 +4,11 @@ import Zone.*;
 
 public abstract class Vehicle {
 
-    protected Zone vehicleZone;
-    protected int vehicleId, vehicleFare, vehicleScore, vehicleLotId;
-    protected Terminal itsTerminal;
+    private Zone vehicleZone;
+    private int vehicleId, vehicleFare, vehicleScore, vehicleLotId;
+    private Terminal itsTerminal;
 
-    public Vehicle(Zone vehicleZone, int vehicleId, int vehicleFare, int vehicleScore, int vehicleLotId, Terminal itsTerminal) {
+    Vehicle(Zone vehicleZone, int vehicleId, int vehicleFare, int vehicleScore, int vehicleLotId, Terminal itsTerminal) {
         this.vehicleZone = vehicleZone;
         this.vehicleId = vehicleId;
         this.vehicleFare = vehicleFare;
@@ -36,4 +36,7 @@ public abstract class Vehicle {
     public Terminal getItsTerminal() {
         return itsTerminal;
     }
+
+
+
 }

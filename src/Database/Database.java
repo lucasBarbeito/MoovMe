@@ -1,26 +1,23 @@
 package Database;
 
+import Members.*;
+import Zone.Terminal;
 import java.util.HashMap;
 
-public abstract class Database<Key, Value> {
+public abstract class Database {
 
-    protected HashMap<Key, Value> hashmap;
-    public Database() {
-        this.hashmap = new HashMap<Key, Value>();
-    }
-
-    public Value find(Key key) {
+    <Key, Value> Value find(Key key, HashMap<Key, Value> hashmap) {
         return hashmap.get(key);
     }
 
-    public void remove(Key key) {
+    <Key, Value> void remove(Key key, HashMap<Key, Value> hashmap) {
         hashmap.remove(key);
     }
 
-    public void add(Key key, Value aValue) {
+    <Key, Value> void add(Key key, Value aValue, HashMap<Key, Value> hashmap) {
         hashmap.put(key, aValue);
     }
 
-    public abstract void printData();
+    //public void printData();
 
 }

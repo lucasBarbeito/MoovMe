@@ -12,11 +12,11 @@ public class TerminalABM {
     }
 
     public void addToABM(Terminal terminal) {
-        terminalDataBase.add(terminal.getTerminalId(), terminal);
+        terminalDataBase.addTerminal(terminal.getTerminalId(), terminal);
     }
 
     public void removeFromABM(Integer terminalId) {
-        terminalDataBase.remove(terminalId);
+        terminalDataBase.removeTerminal(terminalId);
     }
 
 }

@@ -1,16 +1,26 @@
 package Database;
 
 import Zone.Terminal;
+import java.util.HashMap;
 
-public class TerminalDataBase extends Database<Integer, Terminal> {
+public class TerminalDataBase extends Database {
 
-    public TerminalDataBase() { super(); }
+    private HashMap<Integer, Terminal> terminals;
 
-    @Override
-    public void printData() {
-        for (Terminal terminal: hashmap.values()) {
-            System.out.println(terminal.getItsZone() + " // " + terminal.getTerminalId());
-        }
+    public TerminalDataBase() {
+        terminals = new HashMap<>();
+    }
+
+    public void addTerminal(Integer terminald, Terminal aTerminal) {
+        add(terminald, aTerminal, terminals);
+    }
+
+    public void removeTerminal(Integer terminald) {
+        remove(terminald, terminals);
+    }
+
+    public Terminal findTerminal(Integer terminalId) {
+        return find(terminalId, terminals);
     }
 
 }

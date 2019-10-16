@@ -1,16 +1,16 @@
-import Database.UserDatabase;
+import Database.MemberDatabase;
 import Members.User;
 
 public class Registration {
 
-    private UserDatabase userDatabase;
+    private MemberDatabase memberDatabase;
 
-    public Registration(UserDatabase userDatabase) {
-        this.userDatabase = userDatabase;
+    public Registration(MemberDatabase memberDatabase) {
+        this.memberDatabase = memberDatabase;
     }
 
     public void registerUser(String username, String phoneNumber) {
-        userDatabase.add(username, new User(username, phoneNumber));
+        memberDatabase.addUser(username, new User(username, phoneNumber));
     }
 
 }

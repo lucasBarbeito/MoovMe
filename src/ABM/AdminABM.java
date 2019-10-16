@@ -5,26 +5,25 @@ import Members.*;
 
 public class AdminABM {
 
-    private UserDatabase userDatabase;
-    private AdminDatabase adminDatabase;
+    private MemberDatabase memberDatabase;
+    private VehicleDatabase vehicleDatabase;
 
-    public AdminABM(UserDatabase userDatabase, AdminDatabase adminDatabase) {
-        this.userDatabase = userDatabase;
-        this.adminDatabase = adminDatabase;
+    public AdminABM(MemberDatabase memberDatabase) {
+        this.memberDatabase = memberDatabase;
     }
 
     public void removeFromABM(String username) {
-        Administrator anAdmin = adminDatabase.find(username);
-        adminDatabase.remove(username);
+        Administrator anAdmin = memberDatabase.findAdmin(username);
+        memberDatabase.removeAdmin(username);
         User aUser= new User(anAdmin.getUsername(), anAdmin.getPhoneNumber());
-        userDatabase.add(username, aUser);
+        memberDatabase.addUser(username, aUser);
     }
 
     public void addToABM(String username) {
-        User aUser = userDatabase.find(username);
-        userDatabase.remove(username);
-        Administrator anAdmin = new Administrator(aUser.getUsername(), aUser.getPhoneNumber(), this, userDatabase);
-        adminDatabase.add(username, anAdmin);
+        User aUser = memberDatabase.findUser(username);
+        memberDatabase.removeUser(username);
+        Administrator anAdmin = new Administrator(aUser.getUsername(), aUser.getPhoneNumber(), this, memberDatabase, vehicleDatabase);
+        memberDatabase.addAdmin(username, anAdmin);
     }
 
 
