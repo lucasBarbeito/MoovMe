@@ -10,7 +10,15 @@ public class Registration {
     }
 
     public void registerUser(String username, String phoneNumber) {
-        userDatabase.add(username, new User(username, phoneNumber));
+        if (userDatabase.find(phoneNumber) == true) {
+            throw new RuntimeException("This number is already registered.");
+        } else {
+            userDatabase.add(username, new User(username, phoneNumber));
+        }
     }
+
+
+
+    //hola
 
 }

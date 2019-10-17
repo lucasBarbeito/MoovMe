@@ -9,8 +9,12 @@ public abstract class Database<Key, Value> {
         this.hashmap = new HashMap<Key, Value>();
     }
 
-    public Value find(Key key) {
-        return hashmap.get(key);
+    public boolean find(Key key) {
+        if (hashmap.containsKey(key)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public void remove(Key key) {
