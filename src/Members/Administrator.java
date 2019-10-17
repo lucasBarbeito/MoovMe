@@ -20,11 +20,11 @@ public class Administrator extends User {
     }
 
     public void blockUser(String username) {
-        userDatabase.find(username).blockedStatus = true;
+        //userDatabase.find(username).blockedStatus = true;
     }
 
     public void unblockUser(String username) {
-        userDatabase.find(username).blockedStatus = false;
+        //userDatabase.find(username).blockedStatus = false;
     }
 
     public void upgradeToAdmin(String username) {
