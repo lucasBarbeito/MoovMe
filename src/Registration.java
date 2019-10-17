@@ -16,5 +16,4 @@ public class Registration {
             userDatabase.add(username, new User(username, phoneNumber));
         }
     }
-//holis
 }
