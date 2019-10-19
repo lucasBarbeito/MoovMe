@@ -15,7 +15,7 @@ public class Administrator extends User {
     }
 
     public void upgradeToAdmin(String username) {
-        anUserManager.addToABM(username);
+        anUserManager.addToABM(username, aterminalManager.getTerminalDataBase());
     }
 
     public void downgradeToUser(String username) {
