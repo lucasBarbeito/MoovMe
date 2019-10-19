@@ -1,6 +1,6 @@
 package Database;
 
-import Zone.Terminal;
+import Vehicles.Terminal;
 import java.util.HashMap;
 
 public class TerminalDataBase extends Database {
@@ -11,12 +11,12 @@ public class TerminalDataBase extends Database {
         terminals = new HashMap<>();
     }
 
-    public void addTerminal(Integer terminald, Terminal aTerminal) {
-        add(terminald, aTerminal, terminals);
+    public void addTerminal(Terminal aTerminal) {
+        add(aTerminal.getTerminalId(), aTerminal, terminals);
     }
 
-    public void removeTerminal(Integer terminald) {
-        remove(terminald, terminals);
+    public void removeTerminal(Integer terminalId) {
+        remove(terminalId, terminals);
     }
 
     public Terminal findTerminal(Integer terminalId) {

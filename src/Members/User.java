@@ -1,25 +1,21 @@
 package Members;
 
-import Database.TerminalDataBase;
-import IDGenerator.IdGenerator;
 import ScorePoints.ScorePoint;
 import Vehicles.Vehicle;
-import Zone.Terminal;
 
 import java.util.HashMap;
 
 public class User {
 
     private String username, phoneNumber;
-    boolean blockedStatus;
-    private TerminalDataBase terminalDataBase;
+    private boolean blocked;
     private Vehicle vehicleInUse;
     private HashMap<Integer, ScorePoint> points = new HashMap<>();
 
     public User(String username, String phoneNumber){
         this.username = username;
         this.phoneNumber = phoneNumber;
-        blockedStatus = false;
+        blocked = false;
     }
 
     public String getUsername() {
@@ -30,13 +26,12 @@ public class User {
         return phoneNumber;
     }
 
-    public boolean getBlockedStatus() { return blockedStatus; }
+    public boolean getBlockedStatus() {
+        return blocked;
+    }
 
-    //
-
-    public void startTrip(int terminalId, int vehicleId) {
-        Terminal aTerminal = terminalDataBase.findTerminal(terminalId);
-        vehicleInUse = aTerminal.takeOutVehicle(vehicleId);
+    public void changeBlockedStatus() {
+        blocked = !blocked;
     }
 
 }

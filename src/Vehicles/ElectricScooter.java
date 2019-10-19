@@ -4,9 +4,10 @@ import Zone.*;
 
 public class ElectricScooter extends Vehicle {
 
-
-    public ElectricScooter(Zone vehicleZone, int vehicleId, int vehicleFare,
-                           int vehicleScore, int vehicleBatchId, Terminal itsTerminal) {
-        super(vehicleZone, vehicleId, vehicleFare, vehicleScore, vehicleBatchId, itsTerminal);
+    public ElectricScooter(int vehicleId, int vehicleLotId) {
+        super(vehicleId, vehicleLotId);
+        vehicleFare = 0.10;
+        vehicleScore = 20;
     }
+
 }

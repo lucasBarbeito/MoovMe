@@ -5,19 +5,15 @@ import Zone.*;
 public abstract class Vehicle {
 
     private Zone vehicleZone;
-    private int vehicleId, vehicleFare, vehicleScore, vehicleLotId;
-    private Terminal itsTerminal;
+    private int vehicleId, LotId;
+    protected double vehicleFare, vehicleScore;
 
-    Vehicle(Zone vehicleZone, int vehicleId, int vehicleFare, int vehicleScore, int vehicleLotId, Terminal itsTerminal) {
-        this.vehicleZone = vehicleZone;
+    Vehicle(int vehicleId, int LotId) {
         this.vehicleId = vehicleId;
-        this.vehicleFare = vehicleFare;
-        this.vehicleScore = vehicleScore;
-        this.vehicleLotId = vehicleLotId;
-        this.itsTerminal = itsTerminal;
+        this.LotId = LotId;
     }
 
-    public int getVehicleFare() {
+    public double getVehicleFare() {
         return vehicleFare;
     }
 
@@ -28,15 +24,5 @@ public abstract class Vehicle {
     public Zone getVehicleZone() {
         return vehicleZone;
     }
-
-    public void setItsTerminal(Terminal itsTerminal) {
-        this.itsTerminal = itsTerminal;
-    }
-
-    public Terminal getItsTerminal() {
-        return itsTerminal;
-    }
-
-
 
 }

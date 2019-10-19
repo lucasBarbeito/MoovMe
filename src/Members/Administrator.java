@@ -1,50 +1,45 @@
 package Members;
 
-import ABM.AdminABM;
-import ABM.TerminalABM;
-import Database.MemberDatabase;
-import Database.VehicleDatabase;
-import IDGenerator.IdGenerator;
-import Zone.Terminal;
-import Zone.Zone;
+import Manager.UserManager;
+import Manager.TerminalManager;
 
 public class Administrator extends User {
 
-    private AdminABM adminABM;
-    private MemberDatabase memberDatabase;
-    private VehicleDatabase vehicleDatabase;
-    private TerminalABM terminalABM;
+    private UserManager anUserManager;
+    private TerminalManager aterminalManager;
 
-    public Administrator(String username, String phoneNumber, AdminABM adminABM, MemberDatabase memberDatabase, VehicleDatabase vehicleDatabase){
-        super(username, phoneNumber);
-        this.adminABM = adminABM;
-        this.memberDatabase = memberDatabase;
-        this.vehicleDatabase = vehicleDatabase;
-    }
-
-    public void blockUser(String username) {
-        memberDatabase.findMember(username).blockedStatus = true;
-    }
-
-    public void unblockUser(String username) {
-        memberDatabase.findMember(username).blockedStatus = false;
+    public Administrator(User aUser, UserManager anUserManager, TerminalManager aterminalManager) {
+        super(aUser.getUsername(), aUser.getPhoneNumber());
+        this.anUserManager = anUserManager;
+        this.aterminalManager = aterminalManager;
     }
 
     public void upgradeToAdmin(String username) {
-        adminABM.addToABM(username);
+        anUserManager.addToABM(username);
     }
 
     public void downgradeToUser(String username) {
-        adminABM.removeFromABM(username);
+        anUserManager.removeFromABM(username);
     }
 
-    public void createTerminal(String zoneName) {
-        Terminal newTerminal = new Terminal(new Zone(zoneName), IdGenerator.getNewTerminalId(), vehicleDatabase);
-        terminalABM.addToABM(newTerminal);
+    public void blockUser(String username) {
+        anUserManager.blockUser(username);
     }
 
+    public void unblockUser(String username) {
+        anUserManager.unblockUser(username);
+    }
 
+    public void createBicycleLot(int numberOfBicycles) {
+        aterminalManager.newBicycleLot(numberOfBicycles);
+    }
 
+    public void createScooterLot(int numberOfScooters) {
+        aterminalManager.newScooterLot(numberOfScooters);
+    }
 
+    public void createTerminal(String zoneName, double discountPerPoint) {
+        aterminalManager.addTerminal(zoneName, discountPerPoint);
+    }
 
 }

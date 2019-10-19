@@ -1,7 +1,5 @@
 package Database;
 
-import Members.*;
-import Zone.Terminal;
 import java.util.HashMap;
 
 public abstract class Database {
@@ -17,7 +15,5 @@ public abstract class Database {
     <Key, Value> void add(Key key, Value aValue, HashMap<Key, Value> hashmap) {
         hashmap.put(key, aValue);
     }
-
-    //public void printData();
 
 }

@@ -28,14 +28,14 @@ public class MemberDatabase extends Database {
         return find(username, members);
     }
 
-    public void addUser(String username, User aUser) {
-        add(username, aUser, users);
-        members.put(username, aUser);
+    public void addUser(User aUser) {
+        add(aUser.getUsername(), aUser, users);
+        members.put(aUser.getUsername(), aUser);
     }
 
-    public void addAdmin(String username, Administrator anAdministrator) {
-        add(username, anAdministrator, admins);
-        members.put(username, anAdministrator);
+    public void addAdmin(Administrator anAdministrator) {
+        add(anAdministrator.getUsername(), anAdministrator, admins);
+        members.put(anAdministrator.getUsername(), anAdministrator);
     }
 
     public void removeUser(String username) {
@@ -47,13 +47,5 @@ public class MemberDatabase extends Database {
         remove(username, admins);
         members.remove(username);
     }
-
-    /*
-    public void printData() {
-        for (User aUser : hashmap.values()) {
-            System.out.println(aUser.getUsername() + " // " + aUser.getPhoneNumber() + " // isBlocked: " + aUser.getBlockedStatus());
-        }
-    }
-    */
 
 }

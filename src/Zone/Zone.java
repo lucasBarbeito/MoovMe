@@ -1,6 +1,7 @@
 package Zone;
 
 
+import Vehicles.Terminal;
 import Vehicles.Vehicle;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class Zone {
     public void saveVehicleInTerminal(Vehicle vehicle, int terminalId) {
         for (Terminal terminal: terminalsInTheZone) {
             if (terminalId == terminal.getTerminalId()){
-                terminal.addVehiclesToTerminal(vehicle);
+                terminal.addVehiclesToTerminal(vehicle.getVehicleId(), vehicle);
             }
         }
     }
