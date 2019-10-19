@@ -42,7 +42,11 @@ public class UserManager {
 
     private void registerUser(String username, String phoneNumber) {
         User newUser = new User(username, phoneNumber);
-        aMemberDatabase.addUser(newUser);
+        if (aMemberDatabase.alreadyStoredKey(phoneNumber) == true) {
+            throw new RuntimeException("This number is already registered.");
+        } else {
+            aMemberDatabase.addUser(newUser);;
+        }
     }
 
     private void registerAdmin(String username, String phoneNumber, UserManager userManager, TerminalDataBase aTerminalDataBase) {

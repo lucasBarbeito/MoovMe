@@ -16,4 +16,8 @@ public abstract class Database {
         hashmap.put(key, aValue);
     }
 
+    <Key, Value> boolean checkKey(Key key, HashMap<Key, Value> hashmap) {
+        return hashmap.containsKey(key);
+    }
+
 }

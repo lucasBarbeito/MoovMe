@@ -16,36 +16,40 @@ public class MemberDatabase extends Database {
         members = new HashMap<>();
     }
 
-    public User findUser(String username) {
-        return find(username, users);
+    public User findUser(String phoneNumber) {
+        return find(phoneNumber, users);
     }
 
-    public Administrator findAdmin(String username) {
-        return find(username, admins);
+    public Administrator findAdmin(String phoneNumber) {
+        return find(phoneNumber, admins);
     }
 
-    public User findMember(String username) {
-        return find(username, members);
+    public User findMember(String phoneNumber) {
+        return find(phoneNumber, members);
     }
 
     public void addUser(User aUser) {
-        add(aUser.getUsername(), aUser, users);
-        members.put(aUser.getUsername(), aUser);
+        add(aUser.getPhoneNumber(), aUser, users);
+        members.put(aUser.getPhoneNumber(), aUser);
     }
 
     public void addAdmin(Administrator anAdministrator) {
-        add(anAdministrator.getUsername(), anAdministrator, admins);
-        members.put(anAdministrator.getUsername(), anAdministrator);
+        add(anAdministrator.getPhoneNumber(), anAdministrator, admins);
+        members.put(anAdministrator.getPhoneNumber(), anAdministrator);
     }
 
-    public void removeUser(String username) {
-        remove(username, users);
-        members.remove(username);
+    public void removeUser(String phoneNumber) {
+        remove(phoneNumber, users);
+        members.remove(phoneNumber);
     }
 
-    public void removeAdmin(String username) {
-        remove(username, admins);
-        members.remove(username);
+    public void removeAdmin(String phoneNumber) {
+        remove(phoneNumber, admins);
+        members.remove(phoneNumber);
+    }
+
+    public boolean alreadyStoredKey(String phoneNumber) {
+        return checkKey(phoneNumber, members);
     }
 
 }
