@@ -1,4 +1,4 @@
-package Registration;
+package IdGenerator;
 
 public class IdGenerator {
 

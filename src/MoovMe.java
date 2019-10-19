@@ -2,10 +2,9 @@ import Manager.TerminalManager;
 import Manager.UserManager;
 import Database.MemberDatabase;
 import Database.TerminalDataBase;
-import Registration.IdGenerator;
+import IdGenerator.IdGenerator;
 import Members.Administrator;
 import Members.User;
-import Registration.Registrator;
 
 public class MoovMe {
 
@@ -14,8 +13,7 @@ public class MoovMe {
         IdGenerator idGenerator = new IdGenerator();
         MemberDatabase memberDatabase = new MemberDatabase();
         TerminalDataBase terminalDataBase = new TerminalDataBase();
-        Registrator registrator = new Registrator(memberDatabase, idGenerator, terminalDataBase );
-        UserManager u = new UserManager(memberDatabase, registrator);
+        UserManager u = new UserManager(memberDatabase, idGenerator);
         TerminalManager terminalManager = new TerminalManager(terminalDataBase, idGenerator);
 
         Administrator a = new Administrator(new User("aaa", "1223"), u, terminalManager);

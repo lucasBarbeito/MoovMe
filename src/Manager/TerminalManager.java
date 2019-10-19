@@ -1,7 +1,7 @@
 package Manager;
 
 import Database.TerminalDataBase;
-import Registration.IdGenerator;
+import IdGenerator.IdGenerator;
 import Vehicles.Bicycle;
 import Vehicles.ElectricScooter;
 import Vehicles.Lot;
@@ -49,6 +49,12 @@ public class TerminalManager {
 
     private <T> void newLot(int lotId, HashMap<Integer, T> vehicles) {
         Lot aLot = new Lot(lotId, vehicles);
+    }
+
+    // Se usa para cuando el UserManager va a crear Admins, el llama
+    // el metodo AddToABM y pasa como argumento la TerminalDatabase
+    public TerminalDataBase getTerminalDataBase() {
+        return aTerminalDataBase;
     }
 
 }
