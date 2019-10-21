@@ -1,8 +1,8 @@
 package Trip;
 
 import Members.User;
-import Vehicles.Terminal;
-import Vehicles.Vehicle;
+import Assets.Terminal;
+import Assets.Vehicle;
 
 public class Trip {
 

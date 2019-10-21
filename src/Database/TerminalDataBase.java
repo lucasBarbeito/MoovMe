@@ -1,6 +1,6 @@
 package Database;
 
-import Vehicles.Terminal;
+import Assets.Terminal;
 import java.util.HashMap;
 
 public class TerminalDataBase extends Database {

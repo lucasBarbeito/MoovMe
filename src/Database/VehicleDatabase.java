@@ -1,6 +1,6 @@
 package Database;
 
-import Vehicles.Vehicle;
+import Assets.Vehicle;
 import java.util.HashMap;
 
 public class VehicleDatabase extends Database  {

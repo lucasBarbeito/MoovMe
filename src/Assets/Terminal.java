@@ -1,7 +1,5 @@
-package Vehicles;
+package Assets;
 
-import Database.VehicleDatabase;
-import Vehicles.Vehicle;
 import Zone.Zone;
 
 import java.util.HashMap;

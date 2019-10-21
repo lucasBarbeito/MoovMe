@@ -2,10 +2,10 @@ package Manager;
 
 import Database.TerminalDataBase;
 import IdGenerator.IdGenerator;
-import Vehicles.Bicycle;
-import Vehicles.Scooter;
-import Vehicles.Lot;
-import Vehicles.Terminal;
+import Assets.Bicycle;
+import Assets.Scooter;
+import Assets.Lot;
+import Assets.Terminal;
 import Zone.Zone;
 
 import java.util.HashMap;

@@ -2,9 +2,8 @@ package Members;
 
 import Database.TerminalDataBase;
 import ScorePoints.ScorePoint;
-import Trip.Trip;
-import Vehicles.Terminal;
-import Vehicles.Vehicle;
+import Assets.Terminal;
+import Assets.Vehicle;
 
 import java.util.HashMap;
 

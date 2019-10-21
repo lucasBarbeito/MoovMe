@@ -1,4 +1,4 @@
-package Vehicles;
+package Assets;
 
 import Zone.*;
 

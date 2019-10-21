@@ -1,7 +1,7 @@
 package Zone;
 
-import Vehicles.Terminal;
-import Vehicles.Vehicle;
+import Assets.Terminal;
+import Assets.Vehicle;
 
 import java.util.ArrayList;
 
