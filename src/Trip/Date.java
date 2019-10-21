@@ -1,4 +1,4 @@
-package Date;
+package Trip;
 
 public class Date {
 

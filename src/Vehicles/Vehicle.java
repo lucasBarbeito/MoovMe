@@ -6,15 +6,20 @@ public abstract class Vehicle {
 
     private Zone vehicleZone;
     private int vehicleId, LotId;
-    protected double vehicleFare, vehicleScore;
+    double vehicleFare, vehicleScore, vehiclePenaltyFee;
 
-    Vehicle(int vehicleId, int LotId) {
+    Vehicle(int vehicleId, int LotId, Zone vehicleZone) {
         this.vehicleId = vehicleId;
         this.LotId = LotId;
+        this.vehicleZone = vehicleZone;
     }
 
     public double getVehicleFare() {
         return vehicleFare;
+    }
+
+    public  double getVehiclePenaltyFee() {
+        return vehiclePenaltyFee;
     }
 
     public int getVehicleId() {

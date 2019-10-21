@@ -3,7 +3,7 @@ package Manager;
 import Database.TerminalDataBase;
 import IdGenerator.IdGenerator;
 import Vehicles.Bicycle;
-import Vehicles.ElectricScooter;
+import Vehicles.Scooter;
 import Vehicles.Lot;
 import Vehicles.Terminal;
 import Zone.Zone;
@@ -29,20 +29,20 @@ public class TerminalManager {
         aTerminalDataBase.removeTerminal(terminalId);
     }
 
-    public void newBicycleLot(int numberOfBicycles) {
+    public void newBicycleLot(int numberOfBicycles, Zone aZone) {
         int newLotId = anIdGenerator.getNewLotId();
         HashMap<Integer, Bicycle> vehicles = new HashMap<>();
         for (int i = 0; i < numberOfBicycles; i++) {
-            vehicles.put(anIdGenerator.getNewVehicleId(), new Bicycle(anIdGenerator.getNewVehicleId(), newLotId));
+            vehicles.put(anIdGenerator.getNewVehicleId(), new Bicycle(anIdGenerator.getNewVehicleId(), newLotId, aZone));
         }
         newLot(newLotId, vehicles);
     }
 
-    public void newScooterLot(int numberOfScooters) {
+    public void newScooterLot(int numberOfScooters, Zone aZone) {
         int newLotId = anIdGenerator.getNewLotId();
-        HashMap<Integer, ElectricScooter> vehicles = new HashMap<>();
+        HashMap<Integer, Scooter> vehicles = new HashMap<>();
         for (int i = 0; i < numberOfScooters; i++) {
-            vehicles.put(anIdGenerator.getNewVehicleId(), new ElectricScooter(anIdGenerator.getNewVehicleId(), newLotId));
+            vehicles.put(anIdGenerator.getNewVehicleId(), new Scooter(anIdGenerator.getNewVehicleId(), newLotId, aZone));
         }
         newLot(newLotId, vehicles);
     }

@@ -1,6 +1,5 @@
 package Zone;
 
-
 import Vehicles.Terminal;
 import Vehicles.Vehicle;
 
@@ -9,16 +8,16 @@ import java.util.ArrayList;
 public class Zone {
 
     private String zoneName;
-    private double discountPerPoint;
+    private double zoneCost;
     private ArrayList<Terminal> terminalsInTheZone;
 
-    public Zone(String zoneName, double discountPerPoint) {
+    public Zone(String zoneName, double zoneCost) {
         this.zoneName = zoneName;
-        this.discountPerPoint = discountPerPoint;
+        this.zoneCost = zoneCost;
     }
 
-    public double getDiscountPerPoint() {
-        return discountPerPoint;
+    public double getZoneCost() {
+        return zoneCost;
     }
 
     public String getZoneName() {

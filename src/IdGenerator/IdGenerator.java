@@ -18,6 +18,6 @@ public class IdGenerator {
         return ++lastLotId;
     }
 
-    public int getNewTerminalId() { return ++lastTerminalId; }
+    public int getNewTerminalId() { return ++lastTerminalId; }  
 
 }
