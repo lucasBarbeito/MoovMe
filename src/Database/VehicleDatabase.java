@@ -21,7 +21,7 @@ public class VehicleDatabase extends Database  {
     }
     */
 
-    //
+
     public void fromTerminalToInUse(int vehicleId) {
         vehiclesInUse.put(vehicleId, vehiclesInTerminal.get(vehicleId));
         vehiclesInTerminal.remove(vehicleId);

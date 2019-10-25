@@ -1,5 +1,7 @@
 package ScorePoints;
 
+import java.io.Serializable;
+
 public class ScorePoint {
 
     int totalPoints;
