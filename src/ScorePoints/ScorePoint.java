@@ -2,7 +2,7 @@ package ScorePoints;
 
 import java.io.Serializable;
 
-public class ScorePoint {
+public class ScorePoint implements Comparable{
 
     int totalPoints;
     String zoneName, userName;
@@ -27,5 +27,13 @@ public class ScorePoint {
 
     void addPoints(int point){
         totalPoints += point;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof ScorePoint){
+            return totalPoints - ((ScorePoint) o).getTotalPoints();
+        }
+        throw new RuntimeException();
     }
 }
