@@ -2,26 +2,23 @@ package Manager;
 
 import Database.*;
 import Members.*;
-import IdGenerator.IdGenerator;
 
 public class UserManager {
 
     private MemberDatabase aMemberDatabase;
-    private IdGenerator anIdGenerator; // todo: creo que se puede quitar esta variable, no se usa, revisar bien
 
-    public UserManager(MemberDatabase aMemberDatabase, IdGenerator anIdGenerator) {
+    public UserManager(MemberDatabase aMemberDatabase) {
         this.aMemberDatabase = aMemberDatabase;
-        this.anIdGenerator = anIdGenerator;
     }
 
     public void removeFromABM(String phoneNumber) {
         Administrator anAdmin = aMemberDatabase.findAdmin(phoneNumber);
         aMemberDatabase.removeAdmin(phoneNumber);
-        registerUser(anAdmin.getUsername(), anAdmin.getPhoneNumber(), anAdmin.getTerminalDatabase());
+        registerUser(anAdmin.getUsername(), anAdmin.getPhoneNumber());
     }
 
-    private void registerUser(String username, String phoneNumber, TerminalDataBase aTerminalDatabase) {
-        User newUser = new User(username, phoneNumber, aTerminalDatabase);
+    private void registerUser(String username, String phoneNumber) {
+        User newUser = new User(username, phoneNumber);
         if (aMemberDatabase.alreadyStoredKey(phoneNumber)) {
             throw new RuntimeException("This number is already registered.");
         } else {
@@ -42,16 +39,13 @@ public class UserManager {
 
     public void blockUser(String phoneNumber) {
         User aUser = aMemberDatabase.findMember(phoneNumber);
-        if(!aUser.getBlockedStatus()) {
-            aUser.changeBlockedStatus();
-        }
+        aUser.blockUser();
+
     }
 
     public void unblockUser(String phoneNumber) {
         User aUser = aMemberDatabase.findMember(phoneNumber);
-        if(aUser.getBlockedStatus()) {
-            aUser.changeBlockedStatus();
-        }
+        aUser.unBlockUser();
     }
 
     public User getMember(String phoneNumber) {

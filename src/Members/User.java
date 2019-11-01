@@ -1,8 +1,7 @@
 package Members;
 
-import Database.TerminalDataBase;
 import ScorePoints.ScorePoint;
-import Assets.Terminal;
+import Trip.Trip;
 import Assets.Vehicle;
 
 import java.util.HashMap;
@@ -13,13 +12,12 @@ public class User {
     private boolean blocked;
     private Vehicle vehicleInUse;
     private double moneySpent;
-    private TerminalDataBase aTerminalDatabase;
+    private Trip trip;
     private HashMap<Integer, ScorePoint> points = new HashMap<>();
 
-    public User(String username, String phoneNumber, TerminalDataBase aTerminalDatabase){
+    public User(String username, String phoneNumber){
         this.username = username;
         this.phoneNumber = phoneNumber;
-        this.aTerminalDatabase = aTerminalDatabase;
         blocked = false;
         moneySpent = 0;
     }
@@ -36,16 +34,18 @@ public class User {
         return blocked;
     }
 
-    public void changeBlockedStatus() {
-        blocked = !blocked;
+    public void blockUser() {
+        blocked = true;
+    }
+    public void unBlockUser() {
+        blocked = false;
     }
 
     // El usuario se acerca a la terminal e ingresa en la app el id de la terminal
     // y el id del vehiculo para iniciar el viaje. Luego de eso la terminal le
     // otorga el vehiculo y el usuario puede usarlo
     public void startTrip(int terminalId, int vehicleId) {
-        Terminal aTerminal = aTerminalDatabase.findTerminal(terminalId);
-        //Trip newTrip = new Trip(this, aTerminal, aTerminal.getVehicle(vehicleId), );
+
     }
 
     public void payment() {

@@ -12,7 +12,7 @@ public class Trip {
     private Date startTime, endTime;
     private int duration;
 
-    public Trip(User aUser, Terminal aTerminal, Vehicle aVehicle/*, startTime */) {
+    public Trip(User aUser, Terminal aTerminal, Vehicle aVehicle) {
         this.aUser = aUser;
         this.aTerminal = aTerminal;
         this.aVehicle = aVehicle;
