@@ -1,60 +1,66 @@
 package Manager;
 
-import Database.TerminalDataBase;
+import Assets.*;
+import Database.TerminalDatabase;
 import IdGenerator.IdGenerator;
-import Assets.Bicycle;
-import Assets.Scooter;
-import Assets.Lot;
-import Assets.Terminal;
-import Zone.Zone;
-
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class TerminalManager {
 
-    private TerminalDataBase aTerminalDataBase;
+    private TerminalDatabase aTerminalDatabase;
     private IdGenerator anIdGenerator;
 
-    public TerminalManager(TerminalDataBase aTerminalDataBase, IdGenerator anIdGenerator) {
-        this.aTerminalDataBase = aTerminalDataBase;
+    public TerminalManager(TerminalDatabase aTerminalDatabase, IdGenerator anIdGenerator) {
+        this.aTerminalDatabase = aTerminalDatabase;
         this.anIdGenerator = anIdGenerator;
     }
 
-    public void addTerminal(String zoneName, double discountPerPoint) {
-        Terminal newTerminal = new Terminal(new Zone(zoneName, discountPerPoint), anIdGenerator.getNewTerminalId());
-        aTerminalDataBase.addTerminal(newTerminal);
+    public void addTerminal(Zone aZone) {
+        Terminal newTerminal = new Terminal(aZone, anIdGenerator.getNewTerminalId());
+        aTerminalDatabase.addTerminal(newTerminal);
     }
 
     public void removeTerminal(Integer terminalId) {
-        aTerminalDataBase.removeTerminal(terminalId);
+        aTerminalDatabase.removeTerminal(terminalId);
     }
 
-    public void newBicycleLot(int numberOfBicycles, Zone aZone) {
+    public void newBicycleLot(int numberOfBicycles, Zone aZone, int terminalId) {
         int newLotId = anIdGenerator.getNewLotId();
-        HashMap<Integer, Bicycle> vehicles = new HashMap<>();
+        Terminal terminalToAddLot = aTerminalDatabase.findTerminal(terminalId);
+        ArrayList<Vehicle> vehicles = new ArrayList<>(numberOfBicycles);
         for (int i = 0; i < numberOfBicycles; i++) {
-            vehicles.put(anIdGenerator.getNewVehicleId(), new Bicycle(anIdGenerator.getNewVehicleId(), newLotId, aZone));
+            vehicles.add(new Bicycle(anIdGenerator.getNewVehicleId(), newLotId, aZone));
         }
-        newLot(newLotId, vehicles);
+        VehicleLot newVehicleLot = new VehicleLot(newLotId, vehicles);
+        terminalToAddLot.addVehiclesToTerminal(newVehicleLot.getVehicles());
     }
 
-    public void newScooterLot(int numberOfScooters, Zone aZone) {
+    public void newScooterLot(int numberOfScooters, Zone aZone, int terminalId) {
         int newLotId = anIdGenerator.getNewLotId();
-        HashMap<Integer, Scooter> vehicles = new HashMap<>();
+        Terminal terminalToAddLot = aTerminalDatabase.findTerminal(terminalId);
+        ArrayList<Vehicle> vehicles = new ArrayList<>(numberOfScooters);
         for (int i = 0; i < numberOfScooters; i++) {
-            vehicles.put(anIdGenerator.getNewVehicleId(), new Scooter(anIdGenerator.getNewVehicleId(), newLotId, aZone));
+            vehicles.add(new Scooter(anIdGenerator.getNewVehicleId(), newLotId, aZone));
         }
-        newLot(newLotId, vehicles);
+        VehicleLot newVehicleLot = new VehicleLot(newLotId, vehicles);
+        terminalToAddLot.addVehiclesToTerminal(newVehicleLot.getVehicles());
     }
 
-    private <T> void newLot(int lotId, HashMap<Integer, T> vehicles) {
-        Lot aLot = new Lot(lotId, vehicles);
+    /*
+    private  <T extends Vehicle> void newVehicleLot(int numberOfVehicles, Zone aZone) {
+        int newLotId = anIdGenerator.getNewLotId();
+        HashMap<Integer, T> vehicles = new HashMap<>();
+        for (int i = 0; i < numberOfVehicles; i++) {
+            vehicles.put(anIdGenerator.getNewVehicleId(), new T(anIdGenerator.getNewVehicleId(), newLotId, aZone));
+        }
     }
+    private Bicycle newBicycle(int newLotId, Zone aZone) {
+        return new Bicycle(anIdGenerator.getNewVehicleId(), newLotId, aZone);
+    }
+    */
 
-    // Se usa para cuando el UserManager va a crear Admins, el llama
-    // el metodo AddToABM y pasa como argumento la TerminalDatabase
-    public TerminalDataBase getTerminalDataBase() {
-        return aTerminalDataBase;
+    public TerminalDatabase getTerminalDataBase() {
+        return aTerminalDatabase;
     }
 
 }

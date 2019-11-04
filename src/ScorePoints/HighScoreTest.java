@@ -1,12 +1,11 @@
 package ScorePoints;
 
-import Zone.Zone;
-
-import static org.junit.jupiter.api.Assertions.*;
+import Assets.Zone;
 
 class HighScoreTest {
 
-    @org.junit.jupiter.api.Test
+    //@org.junit.jupiter.api.Test
+    /*
     void sortScorePoints() {
         HighScore highScore = new HighScore(new Zone("CABA", 50));
         highScore.add(new ScorePoint(100, "CABA", "Jorgito"));
@@ -15,4 +14,6 @@ class HighScoreTest {
         highScore.add(new ScorePoint(350, "CABA", "Maiu"));
         highScore.sortScorePoints();
     }
+
+     */
 }

@@ -1,39 +1,45 @@
 package ScorePoints;
 
-import java.io.Serializable;
+public class ScorePoint {
 
-public class ScorePoint implements Comparable{
+    private double totalMonthlyPoints, pointsForDiscount;
+    private String zoneName, username;
 
-    int totalPoints;
-    String zoneName, userName;
-
-    public ScorePoint(int totalPoints, String zoneName, String userName) {
-        this.totalPoints = totalPoints;
+    public ScorePoint(String zoneName, String username) {
+        this.totalMonthlyPoints = 0;
+        this.pointsForDiscount = 0;
         this.zoneName = zoneName;
-        this.userName = userName;
+        this.username = username;
     }
 
     public String getZoneName() {
         return zoneName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public int getTotalPoints() {
-        return totalPoints;
+    public double getTotalMonthlyPoints() {
+        return totalMonthlyPoints;
     }
 
-    void addPoints(int point){
-        totalPoints += point;
+    public double getPointsForDiscount() {
+        return pointsForDiscount;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        if (o instanceof ScorePoint){
-            return totalPoints - ((ScorePoint) o).getTotalPoints();
-        }
-        throw new RuntimeException();
+    public void addPoints(double points){
+        changePoints(points);
+        totalMonthlyPoints += points;
     }
+
+    public void removePoints(double points){
+        changePoints(-points);
+    }
+
+    private void changePoints(double points) {
+        pointsForDiscount += points;
+    }
+
+
 }

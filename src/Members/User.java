@@ -2,23 +2,23 @@ package Members;
 
 import ScorePoints.ScorePoint;
 import Trip.Trip;
-import Assets.Vehicle;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 
 public class User {
 
     private String username, phoneNumber;
-    private boolean blocked;
-    private Vehicle vehicleInUse;
+    private boolean isUserBlocked, isUserTraveling;
     private double moneySpent;
-    private Trip trip;
-    private HashMap<Integer, ScorePoint> points = new HashMap<>();
+    private Trip aUserTrip;
+    private HashMap<String, ScorePoint> userPoints;
 
     public User(String username, String phoneNumber){
         this.username = username;
         this.phoneNumber = phoneNumber;
-        blocked = false;
+        isUserBlocked = false;
+        isUserTraveling = false;
         moneySpent = 0;
     }
 
@@ -31,30 +31,63 @@ public class User {
     }
 
     public boolean getBlockedStatus() {
-        return blocked;
+        return isUserBlocked;
     }
+
+    public ScorePoint getUserPoints(String zoneName) {
+        return userPoints.get(zoneName);
+    }
+
+    /*
+    public void changeBlockedStatus() {
+        isUserBlocked = !isUserBlocked;
+    }
+    */
 
     public void blockUser() {
-        blocked = true;
-    }
-    public void unBlockUser() {
-        blocked = false;
+        isUserBlocked = true;
     }
 
-    // El usuario se acerca a la terminal e ingresa en la app el id de la terminal
-    // y el id del vehiculo para iniciar el viaje. Luego de eso la terminal le
-    // otorga el vehiculo y el usuario puede usarlo
+    public void unblockUser() {
+        isUserBlocked = false;
+    }
+
     public void startTrip(int terminalId, int vehicleId) {
-
+        //String tripMessage = aUserApp.startTrip(terminalId, vehicleId);
+        //System.out.println(tripMessage);
+        if(isUserBlocked) {
+            System.out.println("You can't start a trip. You're blocked!");
+        }
+        aUserTrip = new Trip(this, terminalId, vehicleId, LocalTime.now());
+        isUserTraveling = true;
+        System.out.println("Trip started successfully!");
     }
 
-    public void payment() {
-        moneySpent += vehicleInUse.getVehiclePenaltyFee();
-        /*
-         todo: falta sumarle tambien el tiempo que estuvo de viaje antes de salir de la zona
-         todo: falta hacer algo que evite que explote si se llama el metodo y la persona no
-               esta de viaje, es decir si no tiene vehiculo
-        */
+    public void endTrip(int terminalId) {
+        //String tripMessage = aUserApp.endTrip(terminalId);
+        //System.out.println(tripMessage);
+        if(isUserTraveling) {
+            aUserTrip.endGoodTrip(terminalId);
+            isUserTraveling = false;
+            System.out.println("Thank you for using MoovMe. Have a great day!");
+        }
+        System.out.println("Sorry can't end a trip. You're not traveling");
+    }
+
+    public void payTrip(double moneyToPay) {
+        this.moneySpent += moneyToPay;
+    }
+
+    public void addPoints(String zoneName, double points) {
+        userPoints.get(zoneName).addPoints(points);
+    }
+
+    public void addScoreboard(String zoneName) {
+        userPoints.put(zoneName, new ScorePoint(zoneName, username));
+    }
+
+    public boolean firstTimeInZone(String zoneName) {
+        return userPoints.containsKey(zoneName);
     }
 
 }

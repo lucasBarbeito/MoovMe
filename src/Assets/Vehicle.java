@@ -1,12 +1,12 @@
 package Assets;
 
-import Zone.*;
+import ScorePoints.ScorePoint;
 
 public abstract class Vehicle {
 
     private Zone vehicleZone;
     private int vehicleId, LotId;
-    double vehicleFare, vehicleScore, vehiclePenaltyFee;
+    double vehicleFare, vehicleTripScore, vehiclePenaltyFee;
 
     Vehicle(int vehicleId, int LotId, Zone vehicleZone) {
         this.vehicleId = vehicleId;
@@ -14,7 +14,13 @@ public abstract class Vehicle {
         this.vehicleZone = vehicleZone;
     }
 
-    public double getVehicleFare() {
+    public abstract double getVehicleFare(ScorePoint userPoints);
+
+    public double getVehicleFare(ScorePoint userPoints, double minimumDiscountScore, double discountPercentage) {
+        if(userPoints.getPointsForDiscount() >= minimumDiscountScore) {
+            userPoints.removePoints(minimumDiscountScore);
+            return vehicleFare * discountPercentage;
+        }
         return vehicleFare;
     }
 
@@ -28,6 +34,10 @@ public abstract class Vehicle {
 
     public Zone getVehicleZone() {
         return vehicleZone;
+    }
+
+    public double getVehicleTripScore() {
+        return vehicleTripScore;
     }
 
 }

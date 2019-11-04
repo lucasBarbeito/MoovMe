@@ -1,48 +1,61 @@
 package Trip;
 
-import Members.User;
 import Assets.Terminal;
 import Assets.Vehicle;
+import Database.TerminalDatabase;
+import Members.User;
+
+import java.time.Duration;
+import java.time.LocalTime;
 
 public class Trip {
 
     private User aUser;
-    private Vehicle aVehicle;
-    private Terminal aTerminal;
-    private Date startTime, endTime;
-    private int duration;
+    private Vehicle usedVehicle;
+    private LocalTime startTime;
+    private TerminalDatabase aTerminalDatabase;
 
-    public Trip(User aUser, Terminal aTerminal, Vehicle aVehicle) {
+    // hay que chequear que el id de terminal y de vehiculo existen, luego que ese vehiculo este en esa terminal
+    public Trip(User aUser, int startTerminalId, int vehicleId, LocalTime startTime) {
         this.aUser = aUser;
-        this.aTerminal = aTerminal;
-        this.aVehicle = aVehicle;
-        //this.startTime = startTime;
+        Terminal startTerminal = aTerminalDatabase.findTerminal(startTerminalId);
+        this.usedVehicle = startTerminal.getVehicle(vehicleId);
+        this.startTime = startTime;
+        checkIfFirstTripInZone();
+        giveTripPointsToUser();
     }
 
-    public void setEndTime() {
-        this.endTime = Date.getInstantTime();
-        duration = startTime.diferenceInMinutes(endTime);
+    private void checkIfFirstTripInZone() {
+        String zoneName = usedVehicle.getVehicleZone().getZoneName();
+        if(aUser.firstTimeInZone(zoneName)) {
+            aUser.addScoreboard(zoneName);
+        }
     }
 
-    public Date getStartTime() {
-        return startTime;
+    private void giveTripPointsToUser() {
+        aUser.addPoints(usedVehicle.getVehicleZone().getZoneName(), usedVehicle.getVehicleTripScore());
     }
 
-    public Date getEndTime() {
-        return endTime;
+    // trip tiene que relacionarse con algo de las multas por escape de zona
+    // se podria crear un historial de los viajes
+    public void endGoodTrip(int terminalId) {
+        Terminal endTerminal = aTerminalDatabase.findTerminal(terminalId);
+        endTerminal.addVehicleToTerminal(usedVehicle.getVehicleId(), usedVehicle);
+        aUser.payTrip(calculateTripFare() * calculateTripDuration());
     }
 
-    public User getUser() {
-        return aUser;
+    public void endBadTrip() {
+        aUser.payTrip(calculateTripFare() * calculateTripDuration());
+        // falta ver tema de multa, bloqueo y regreso de activo
     }
 
-    public Vehicle getVehicle() {
-        return aVehicle;
+    private double calculateTripDuration() {
+        return Duration.between(startTime, LocalTime.now()).getSeconds() / 60.0;
     }
 
-    public int getDuration() {
-        return duration;
+    private double calculateTripFare() {
+        String tripZoneName = usedVehicle.getVehicleZone().getZoneName();
+        return usedVehicle.getVehicleFare(aUser.getUserPoints(tripZoneName));
     }
-
 
 }

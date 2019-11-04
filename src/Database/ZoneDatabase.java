@@ -1,14 +1,18 @@
 package Database;
 
-import Zone.Zone;
+import Assets.Zone;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ZoneDatabase extends Database {
 
     private HashMap<String, Zone> zones;
+    private ArrayList<String> zonesNames;
 
     public ZoneDatabase() {
         zones = new HashMap<>();
+        zonesNames = new ArrayList<>();
     }
 
     public Zone findZone(String zoneName) {
@@ -16,7 +20,9 @@ public class ZoneDatabase extends Database {
     }
 
     public void addZone(Zone aZone) {
-        add(aZone.getZoneName().toLowerCase(), aZone, zones);
+        String zoneName = aZone.getZoneName().toLowerCase();
+        add(zoneName, aZone, zones);
+        zonesNames.add(zoneName);
     }
 
     public void removeZone(String zoneName) {
@@ -24,5 +30,9 @@ public class ZoneDatabase extends Database {
     }
 
     public void joinZones() {}
+
+    public ArrayList<String> getZonesNames() {
+        return new ArrayList<String>(zonesNames);
+    }
 
 }

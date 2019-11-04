@@ -11,7 +11,13 @@ public class UserManager {
         this.aMemberDatabase = aMemberDatabase;
     }
 
-    public void removeFromABM(String phoneNumber) {
+    public void upgradeToAdmin(String phoneNumber, TerminalManager aTerminalManager, ZoneManager aZoneManager) {
+        User aUser = aMemberDatabase.findUser(phoneNumber);
+        aMemberDatabase.removeUser(phoneNumber);
+        registerAdmin(aUser, this, aTerminalManager, aZoneManager);
+    }
+
+    public void downgradeToUser(String phoneNumber) {
         Administrator anAdmin = aMemberDatabase.findAdmin(phoneNumber);
         aMemberDatabase.removeAdmin(phoneNumber);
         registerUser(anAdmin.getUsername(), anAdmin.getPhoneNumber());
@@ -19,33 +25,22 @@ public class UserManager {
 
     private void registerUser(String username, String phoneNumber) {
         User newUser = new User(username, phoneNumber);
-        if (aMemberDatabase.alreadyStoredKey(phoneNumber)) {
-            throw new RuntimeException("This number is already registered.");
-        } else {
-            aMemberDatabase.addUser(newUser);
-        }
+        aMemberDatabase.addUser(newUser);
     }
 
-    public void addToABM(String phoneNumber, TerminalManager aTerminalManager, ZoneDatabase aZoneDatabase) {
-        User aUser = aMemberDatabase.findUser(phoneNumber);
-        aMemberDatabase.removeUser(phoneNumber);
-        registerAdmin(aUser, this, aTerminalManager, aZoneDatabase);
-    }
-
-    private void registerAdmin(User aUser, UserManager userManager, TerminalManager aTerminalManager, ZoneDatabase aZoneDatabase) {
-        Administrator newAdmin = new Administrator(aUser, userManager, aTerminalManager, aZoneDatabase);
+    private void registerAdmin(User aUser, UserManager userManager, TerminalManager aTerminalManager, ZoneManager aZoneManager) {
+        Administrator newAdmin = new Administrator(aUser, userManager, aTerminalManager, aZoneManager);
         aMemberDatabase.addAdmin(newAdmin);
     }
 
     public void blockUser(String phoneNumber) {
         User aUser = aMemberDatabase.findMember(phoneNumber);
         aUser.blockUser();
-
     }
 
     public void unblockUser(String phoneNumber) {
         User aUser = aMemberDatabase.findMember(phoneNumber);
-        aUser.unBlockUser();
+        aUser.unblockUser();
     }
 
     public User getMember(String phoneNumber) {

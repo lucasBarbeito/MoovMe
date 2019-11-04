@@ -1,6 +1,6 @@
 package ScorePoints;
 
-import Zone.Zone;
+import Assets.Zone;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,9 +17,11 @@ public class HighScore{
     }
 
     //si no funciona asi usar, en vez de reverseOrder, naturalOrder.
+    /*
     void sortScorePoints(){
         Collections.sort(scorePoints, Comparator.reverseOrder());
     }
+    */
 
     void add(ScorePoint scorePoint){
         if(scorePoint.getZoneName().equals(zone.getZoneName())) {

@@ -1,37 +1,32 @@
 package Assets;
 
-import Zone.Zone;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Terminal {
-    private Zone itsZone;
+
+    private Zone terminalZone;
     private HashMap<Integer, Vehicle> vehiclesInTerminal;
     private int terminalId;
 
-    public Terminal(Zone itsZone, int terminalId){
-        this.itsZone = itsZone;
+    public Terminal(Zone terminalZone, int terminalId){
+        this.terminalZone = terminalZone;
         this.terminalId = terminalId;
         vehiclesInTerminal = new HashMap<>();
     }
 
-    public void addVehiclesToTerminal(int vehicleId, Vehicle aVehicle){
-        vehiclesInTerminal.put(vehicleId, aVehicle);
+    public void addVehiclesToTerminal(ArrayList<Vehicle> vehicles){
+        for (Vehicle aVehicle : vehicles) {
+            addVehicleToTerminal(aVehicle.getVehicleId(), aVehicle);
+        }
     }
 
-    public void removeVehiclesFromTerminal(int vehicleId){
-        vehiclesInTerminal.remove(vehicleId);
+    public void addVehicleToTerminal(int vehicleId, Vehicle aVehicle) {
+        vehiclesInTerminal.put(vehicleId, aVehicle);
     }
 
     public int getTerminalId() {
         return terminalId;
-    }
-
-    // Remueve el vehiculo de la terminal y regresa ese vehiculo.
-    public Vehicle takeOutVehicle(int vehicleId) {
-        Vehicle aVehicle = vehiclesInTerminal.get(vehicleId);
-        vehiclesInTerminal.remove(vehicleId);
-        return aVehicle;
     }
 
     public boolean checkForVehicleInTerminal(int vehicleId) {
@@ -40,6 +35,7 @@ public class Terminal {
 
     public Vehicle getVehicle(int vehicleId) {
         Vehicle aVehicle = vehiclesInTerminal.get(vehicleId);
+        vehiclesInTerminal.remove(vehicleId);
         return aVehicle;
     }
 

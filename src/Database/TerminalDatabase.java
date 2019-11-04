@@ -3,11 +3,11 @@ package Database;
 import Assets.Terminal;
 import java.util.HashMap;
 
-public class TerminalDataBase extends Database {
+public class TerminalDatabase extends Database {
 
     private HashMap<Integer, Terminal> terminals;
 
-    public TerminalDataBase() {
+    public TerminalDatabase() {
         terminals = new HashMap<>();
     }
 
