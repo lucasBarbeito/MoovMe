@@ -2,8 +2,10 @@ package Trip;
 
 import Assets.Terminal;
 import Assets.Vehicle;
+import Assets.Zone;
 import Database.TerminalDatabase;
 import Members.User;
+import ScorePoints.ScorePoint;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -13,6 +15,8 @@ public class Trip {
     private User aUser;
     private Vehicle usedVehicle;
     private LocalTime startTime;
+    private Zone tripZone;
+    private ScorePoint userPoints;
     private TerminalDatabase aTerminalDatabase;
 
     // hay que chequear que el id de terminal y de vehiculo existen, luego que ese vehiculo este en esa terminal
@@ -21,19 +25,21 @@ public class Trip {
         Terminal startTerminal = aTerminalDatabase.findTerminal(startTerminalId);
         this.usedVehicle = startTerminal.getVehicle(vehicleId);
         this.startTime = startTime;
+        tripZone = usedVehicle.getVehicleZone();
+        userPoints = aUser.getUserPoints(tripZone.getZoneName());
         checkIfFirstTripInZone();
         giveTripPointsToUser();
     }
 
     private void checkIfFirstTripInZone() {
-        String zoneName = usedVehicle.getVehicleZone().getZoneName();
+        String zoneName = tripZone.getZoneName();
         if(aUser.firstTimeInZone(zoneName)) {
             aUser.addScoreboard(zoneName);
         }
     }
 
     private void giveTripPointsToUser() {
-        aUser.addPoints(usedVehicle.getVehicleZone().getZoneName(), usedVehicle.getVehicleTripScore());
+        aUser.addPoints(tripZone.getZoneName(), usedVehicle.getVehicleTripScore());
     }
 
     // trip tiene que relacionarse con algo de las multas por escape de zona
@@ -41,7 +47,12 @@ public class Trip {
     public void endGoodTrip(int terminalId) {
         Terminal endTerminal = aTerminalDatabase.findTerminal(terminalId);
         endTerminal.addVehicleToTerminal(usedVehicle.getVehicleId(), usedVehicle);
-        aUser.payTrip(calculateTripFare() * calculateTripDuration());
+        if(userPoints.isMonthlyTop3()) {
+            userPoints.resetMonthlyTop3();
+            aUser.payTrip(calculateTripFare() * calculateTripDuration() * 0.5);
+        } else {
+            aUser.payTrip(calculateTripFare() * calculateTripDuration());
+        }
     }
 
     public void endBadTrip() {
@@ -54,7 +65,7 @@ public class Trip {
     }
 
     private double calculateTripFare() {
-        String tripZoneName = usedVehicle.getVehicleZone().getZoneName();
+        String tripZoneName = tripZone.getZoneName();
         return usedVehicle.getVehicleFare(aUser.getUserPoints(tripZoneName));
     }
 

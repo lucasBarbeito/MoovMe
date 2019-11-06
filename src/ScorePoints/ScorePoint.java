@@ -4,23 +4,25 @@ public class ScorePoint {
 
     private double totalMonthlyPoints, pointsForDiscount;
     private String zoneName, username;
+    private boolean monthlyTop3;
 
     public ScorePoint(String zoneName, String username) {
         this.totalMonthlyPoints = 0;
         this.pointsForDiscount = 0;
         this.zoneName = zoneName;
         this.username = username;
+        monthlyTop3 = false;
     }
 
-    public String getZoneName() {
+    String getZoneName() {
         return zoneName;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
-    public double getTotalMonthlyPoints() {
+    double getTotalMonthlyPoints() {
         return totalMonthlyPoints;
     }
 
@@ -41,5 +43,16 @@ public class ScorePoint {
         pointsForDiscount += points;
     }
 
+    public void makeMonthlyTop3() {
+        monthlyTop3 = true;
+    }
+
+    public void resetMonthlyTop3() {
+        monthlyTop3 = false;
+    }
+
+    public boolean isMonthlyTop3() {
+        return monthlyTop3;
+    }
 
 }
