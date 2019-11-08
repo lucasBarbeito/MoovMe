@@ -2,7 +2,6 @@ package Members;
 
 import ScorePoints.ScorePoint;
 import Trip.Trip;
-
 import java.time.LocalTime;
 import java.util.HashMap;
 
@@ -53,8 +52,6 @@ public class User {
     }
 
     public void startTrip(int terminalId, int vehicleId) {
-        //String tripMessage = aUserApp.startTrip(terminalId, vehicleId);
-        //System.out.println(tripMessage);
         if(isUserBlocked) {
             System.out.println("You can't start a trip. You're blocked!");
         }

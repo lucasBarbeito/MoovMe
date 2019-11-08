@@ -16,7 +16,7 @@ public abstract class Vehicle {
 
     public abstract double getVehicleFare(ScorePoint userPoints);
 
-    public double getVehicleFare(ScorePoint userPoints, double minimumDiscountScore, double discountPercentage) {
+    double getVehicleFare(ScorePoint userPoints, double minimumDiscountScore, double discountPercentage) {
         if(userPoints.getPointsForDiscount() >= minimumDiscountScore) {
             userPoints.removePoints(minimumDiscountScore);
             return vehicleFare * discountPercentage;

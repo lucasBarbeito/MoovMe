@@ -8,7 +8,6 @@ public class Zone {
 
     private String zoneName;
     private double zoneCost;
-    //private ArrayList<Terminal> terminalsInTheZone; // Hacer HashMap con el id como key y las terminales como values
     private ScoreBoard zoneScoreboard;
     private ArrayList<Discount> zoneDiscounts;
     private static final int TYPES_OF_VEHICLES = 2;

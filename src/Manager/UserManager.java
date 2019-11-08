@@ -34,12 +34,12 @@ public class UserManager {
     }
 
     public void blockUser(String phoneNumber) {
-        User aUser = aMemberDatabase.findMember(phoneNumber);
+        User aUser = aMemberDatabase.findUser(phoneNumber);
         aUser.blockUser();
     }
 
     public void unblockUser(String phoneNumber) {
-        User aUser = aMemberDatabase.findMember(phoneNumber);
+        User aUser = aMemberDatabase.findUser(phoneNumber);
         aUser.unblockUser();
     }
 
