@@ -12,7 +12,7 @@ public class AdministratorInterface extends UserInterface {
     }
 
     @Override
-    void printMenu() {
+    public void printMenu() {
         super.printMenu();
         for (int i = 0; i < adminOptions.size(); i++) {
             System.out.println(userOptions.size() + i + 1

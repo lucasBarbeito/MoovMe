@@ -15,7 +15,7 @@ public class UserInterface {
         this.userOptions = userOptions;
     }
 
-    void printMenu() {
+    public void printMenu() {
         for (int i = 0; i < userOptions.size(); i++) {
             System.out.println((i + 1) + ". " + userOptions.get(i));
         }
